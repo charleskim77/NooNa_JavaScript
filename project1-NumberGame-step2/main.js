@@ -59,7 +59,7 @@ function play() {
     }else if(userValue > RandomNum) {
         resultArea.textContent = "DOWN";
     }else if(userValue = RandomNum) {
-        resultArea.textContent = '${userValue} 정답입니다!';
+        resultArea.textContent = '정답입니다!';
         playButton.disabled = true;
         chanceSelect.disabled = true;
         userInput.disabled = true;
