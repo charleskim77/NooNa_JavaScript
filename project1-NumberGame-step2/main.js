@@ -19,6 +19,7 @@ let historyList = document.getElementById("history-list");
 let chances = 5;
 let chanceArea = document.getElementById("chance-area");
 let history = []; // serValue 값을 배열로 저장
+let imgElement = document.querySelector(".img_t1"); // 이미지 요소 선택
 
 playButton.addEventListener("click", play);
 resetButton.addEventListener("click", reset);
@@ -56,10 +57,13 @@ function play() {
 
     }else if(userValue < RandomNum) {
         resultArea.textContent = "UP";
+        imgElement.src = "img/img_t1_up.gif"; // UP 이미지로 변경
     }else if(userValue > RandomNum) {
         resultArea.textContent = "DOWN";
+        imgElement.src = "img/img_t1_down.gif"; // DOWN 이미지로 변경
     }else if(userValue = RandomNum) {
         resultArea.textContent = '정답입니다!';
+        imgElement.src = "img/img_t1_answer.gif"; // 정답 이미지로 변경
         playButton.disabled = true;
         chanceSelect.disabled = true;
         userInput.disabled = true;
@@ -102,6 +106,7 @@ function reset() {
     chanceArea.textContent = `남은 찬스: ${chances}번 입니다.`; // chances값을 새롭게 반환한다.
     history = []; //이전 게임에서 입력했던 값을 리셋
     updateHistoryList(); //유저 입력했던 숫자 리스트 리셋
+    imgElement.src = "img/img_t1.gif"; // 초기 이미지로 복원
     userInput.disabled = false;
 };
 
