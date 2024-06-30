@@ -1,0 +1,42 @@
+
+body {
+    background-color: rgb(15, 15, 15) !important;
+    color: #ffffff;
+}
+@font-face {
+    font-family: 'Ramche';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Ramche.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+.container {
+    position: relative;
+    background: #040404 url('img/bg_01.png') top right no-repeat;
+    max-width: 600px;
+    min-height: 800px;
+    border: 10px solid #00a1a1;
+    border-radius: 30px;
+    box-shadow: 0px 4px 5px 5px rgba(163, 163, 163, 0.459), 0 6px 20px rgba(0, 0, 0, 0.19);
+}
+
+h1 {
+ background-color: #f5f6e8;
+ border-radius: 10px;
+ overflow: hidden;
+font-family: 'Ramche';
+color: #520101;
+font-weight: bold;
+}
+
+.img_t1 {
+    border-radius: 10px;
+    overflow: hidden;
+}

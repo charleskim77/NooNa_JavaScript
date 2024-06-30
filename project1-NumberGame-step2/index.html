@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임</title>
+    <!-- 부트스트랩 CSS 포함 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <h1 class="text-center">숫자 맞추기 게임</h1>
+                <h1 class="text-center">UP&DOWN</h1>
+            </div>
+            <div class="col-md-12">
+                <img class="img_t1" src="img/img_t1.png" width="100%">
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="chance-select">찬스 횟수 선택:</label>
+                    <select id="chance-select" class="form-control">
+                        <option value="5">5회</option>
+                        <option value="6">6회</option>
+                        <option value="7">7회</option>
+                        <option value="8">8회</option>
+                        <option value="9">9회</option>
+                        <option value="10">10회</option>
+                    </select>
+                </div>
+                <div id="result-area" class="alert alert-info">UP & DOWN 힌트를 참고하세요</div>
+                <div id="chance-area" class="alert alert-warning">남은 찬스</div>
+                <div class="input-group mb-3">
+                    <input id="user-input" type="number" class="form-control" placeholder="숫자를 입력하세요">
+                    <div class="input-group-append">
+                        <button id="play-button" class="btn btn-primary">GO!</button>
+                    </div>
+                </div>
+                <button id="reset-button" class="btn btn-danger">리셋!</button>
+                <ul id="history-list" class="list-group mt-3 ml-3 mb-3">
+                    <!-- 유저가 입력한 숫자들이 여기에 추가됩니다. -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 부트스트랩 JS와 의존성 포함 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
