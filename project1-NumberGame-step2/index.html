@@ -7,11 +7,12 @@
     <title>숫자 맞추기 게임</title>
     <!-- 부트스트랩 CSS 포함 -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container game_box mt-5">
         <div class="row">
             <div class="col-md-12 mt-3">
                 <h1 class="text-center">숫자 맞추기 게임</h1>
@@ -20,10 +21,12 @@
             <div class="col-md-12">
                 <img class="img_t1" src="img/img_t1.gif" width="100%">
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 mb-3">
                 <div class="form-group">
                     <label for="chance-select">찬스 횟수 선택:</label>
                     <select id="chance-select" class="form-control">
+                        <option value="3">3회</option>
+                        <option value="4">4회</option>
                         <option value="5">5회</option>
                         <option value="6">6회</option>
                         <option value="7">7회</option>
@@ -40,12 +43,30 @@
                         <button id="play-button" class="btn btn-primary">GO!</button>
                     </div>
                 </div>
-                <button id="reset-button" class="btn btn-danger">리셋!</button>
-                <ul id="history-list" class="list-group mt-3 ml-3 mb-3">
-                    <!-- 유저가 입력한 숫자들이 여기에 추가됩니다. -->
-                </ul>
+                <div class="reset_box mb-3">
+                    <button id="reset-button" class="btn btn-danger col-2 index100">리셋!</button>
+
+                    <div class="reset_box_hint col-10">
+                        <div id="hint-button" class="index100">힌트보기 <i class="bi bi-arrow-right-square-fill"></i></div>
+                        <div id="hint-content" class="reset_hint_text"></div>
+                        <div id="answer-button" class="index100"><i class="bi bi-arrow-left-square-fill"></i> 정답보기 </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <ul id="history-list">
+                        <!-- 유저가 입력한 숫자들이 여기에 추가됩니다. -->
+                    </ul>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="container mt-5">
+        <ul>
+            <li> 게임 시작 시 찬스 횟수 선택 가능 </li>
+            <li> 유저가 입력한 값을 리스트로 출력 </li>
+            <li> 정답을 맞추면 몇번만에 맞췄는지 알려주고, input창 비활성화 </li>
+            <li> 힌트 보기 & 정답 보기 추가 </li>
+        </ul>
     </div>
 
     <!-- 부트스트랩 JS와 의존성 포함 -->
