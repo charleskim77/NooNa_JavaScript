@@ -107,7 +107,7 @@
         pickRandomNum(); //새로운 랜덤 번호 생성
         chances = parseInt(chanceSelect.value); // 선택된 기회 수로 초기화
         resultArea.textContent = "새롭게 게임이 시작 되었습니다."; // 텍스트 리셋
-        chances = 3; // 기회 초기화
+        //chances = 3; // 기회 초기화
         playButton.disabled = false; // GO 버튼 활성화
         chanceSelect.disabled = false; //찬스 횟 수 활성화
         chanceArea.textContent = `남은 찬스: ${chances}번 입니다.`; // chances값을 새롭게 반환한다.
