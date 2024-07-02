@@ -16,6 +16,21 @@ let addBtn = document.getElementById("add-btn"); //입력 내용 추가 버튼
 let taskList = []; //리스트
 let taskTime = []; // 시간 리스트
 
+// PHP 변수 값을 JavaScript로 전달
+let now = `<?php echo $now; ?>`;
+
+// 현재 시간을 'Y-m-d H:i:s' 형식으로 포맷팅하는 함수
+function getCurrentTime() {
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = ('0' + (now.getMonth() + 1)).slice(-2);
+    let day = ('0' + now.getDate()).slice(-2);
+    let hours = ('0' + now.getHours()).slice(-2);
+    let minutes = ('0' + now.getMinutes()).slice(-2);
+    // let seconds = ('0' + now.getSeconds()).slice(-2);
+    // return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    return `${year}-${month}-${day} ${hours}:${minutes}`;
+}
 
 addBtn.addEventListener('click', addTask) //입력 내용 + 버튼 클릭 이벤트
 
@@ -23,9 +38,11 @@ addBtn.addEventListener('click', addTask) //입력 내용 + 버튼 클릭 이벤
         function addTask() {
             let taskContent = taskInput.value; //입력 된 컨텐츠
             if (taskContent.trim() !== "") {
+                let currentTime = getCurrentTime(); // 현재 시간을 가져오기
                 taskList.push(taskContent);
-                taskTime.push(now); // 현재 시간을 추가
+                taskTime.push(currentTime); // 현재 시간을 추가
                 render();
+                taskInput.value = ""; // 입력창 초기화
             }
         }
 
