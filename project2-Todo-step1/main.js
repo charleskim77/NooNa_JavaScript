@@ -14,27 +14,26 @@ const underLine = document.getElementById('under-line');
 let taskInput = document.getElementById("task-input"); //입력 내용 박스
 let addBtn = document.getElementById("add-btn"); //입력 내용 추가 버튼
 let taskList = []; //리스트
+let taskTime = []; // 시간 리스트
+
 
 addBtn.addEventListener('click', addTask) //입력 내용 + 버튼 클릭 이벤트
 
-// 현재 시간을 기본 로케일 설정으로 포맷팅하는 함수
-function getCurrentFormattedTime() {
-    const now = new Date();
-    return now.toLocaleString();
-}
+        // 할일 추가 함수
+        function addTask() {
+            let taskContent = taskInput.value; //입력 된 컨텐츠
+            if (taskContent.trim() !== "") {
+                taskList.push(taskContent);
+                taskTime.push(now); // 현재 시간을 추가
+                render();
+            }
+        }
 
-// 할일 추가 함수
-function addTask() {
-    let taskContent = taskInput.value; //입력 된 컨텐츠
-    let currentTime = getCurrentFormattedTime(); // 현재 시간
-    taskList.push({ content: taskContent, time: currentTime });
-    render();
-}
 
 function render() {
     let resultHTML = '';
-    for (let i=0;i<taskList.length;i++) {
-        resultHTML += `<div class="todo-item list-group-item d-flex justify-content-between align-items-center"><span>${taskList[i].content}</span><span>${taskList[i].time}</span>
+    for (let i = 0; i < taskList.length; i++) {
+        resultHTML += `<div class="todo-item list-group-item d-flex justify-content-between align-items-center"><span>${taskList[i]}</span><span>${taskTime[i]}</span>
                 <div class="btn-group"><button class="btn btn-success check-button">✔</button><button class="btn btn-danger">삭제</button></div>
             </div>`;
     }
