@@ -1,0 +1,99 @@
+/* 라이트, 다크 모드*/
+:root {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --item-bg-color: #1e1e1e;
+    --item-border-color: solid 1px #830707;
+    --item-text-color: #ffffff;
+}
+
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --item-bg-color: #f8f9fa;
+    --item-border-color: #830707;
+    --item-text-color: #000000;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* 라이트, 다크 모드*/
+
+.theme-toggle-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+}
+
+
+.container {
+    position: relative;
+    /* max-width: 950px; */
+    /* min-height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px; */
+}
+
+.nav {
+    position: relative;
+}
+
+#under-line {
+    height: 4px;
+    background-color: #dc3545;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    padding: 0;
+    transition: left 0.3s ease;
+}
+
+.weather-box div {
+    border-radius: .25rem;
+    overflow: hidden;
+}
+
+.todo-item-box {
+    margin-right: 10px;
+}
+
+.btn-group {
+    min-width: 115px;
+}
+
+.todo-item-time span {
+    float: left;
+    background-color: #464646;
+    color: #fff;
+    padding: 0 16px;
+    height: 32px;
+    font-size: 12px;
+    line-height: 30px;
+    border-radius: 18px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.todo-item-time span i {
+    color: #ffffff;
+    font-size: 18px;
+    padding-right: 10px;
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0% {
+        color: red;
+        opacity: 1;
+    }
+    50% {
+        color: rgb(255, 217, 5);
+        opacity: 1;
+    }
+    100% {
+        color: red;
+        opacity: 1;
+    }
+}
