@@ -94,12 +94,16 @@ function render() {
 
         if (taskList[i].isComplate == true) {
             resultHTML += `<div class="todo-item list-group-item d-flex justify-content-between align-items-center completed-bg">
-                                <div class="todo-item-box completed-done">
-                                    <div>${taskList[i].taskContent}</div>
-                                    <div class="todo-item"><span>작성일자: ${taskTime[i]}</span> <span>완료 예정일: ${taskList[i].dueDate}</span></div>
+                                <div class="todo-box completed-done">
+                                    <div><input type="checkbox" class="form-check-input me-2 task-checkbox" data-uid="${taskList[i].uid}"></div>
+                                    <div class="todo-item-box">
+                                        <div> ${taskList[i].taskContent} </div>
+                                        <div class="todo-item"><span class="todo-item-icon">${priorityIcon} ${priorityText} </span> <span>작성일자: ${taskTime[i]}</span> <span>완료 예정일: ${taskList[i].dueDate}</span></div>
+                                    </div>
                                 </div>
-                            <div class="btn-group"><button onclick="toggleComplete('${taskList[i].uid}')" class="btn btn-success check-button"><i class="bi bi-arrow-clockwise icon-size-16"></i>
-                                </button><button class="btn btn-danger" onclick="confirmDeleteTask('${taskList[i].uid}')">삭제</button></div>
+                                <div class="btn-group"><button onclick="toggleComplete('${taskList[i].uid}')" class="btn btn-success check-button"><i class="bi bi-check-lg icon-size-16"></i>
+                                    </button><button class="btn btn-warning" onclick="editTask('${taskList[i].uid}')">수정</button><button class="btn btn-danger" onclick="confirmDeleteTask('${taskList[i].uid}')">삭제</button>
+                                </div>
                             </div>`;
         } else {
             resultHTML += `<div class="todo-item list-group-item d-flex justify-content-between align-items-center">
