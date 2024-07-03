@@ -1,26 +1,7 @@
-/* 라이트, 다크 모드*/
-:root {
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --item-bg-color: #1e1e1e;
-    --item-border-color: solid 1px #830707;
-    --item-text-color: #ffffff;
-}
-
-[data-theme="light"] {
+body {
     --bg-color: #ffffff;
     --text-color: #000000;
-    --item-bg-color: #f8f9fa;
-    --item-border-color: #830707;
-    --item-text-color: #000000;
 }
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-/* 라이트, 다크 모드*/
 
 .theme-toggle-button {
     position: absolute;
@@ -28,7 +9,6 @@ body {
     right: 10px;
     font-size: 12px;
 }
-
 
 .container {
     position: relative;
@@ -66,26 +46,52 @@ body {
 
 .todo-item-time span {
     float: left;
-    background-color: #464646;
-    color: #fff;
+    background-color: #e4e4e4;
+    color: #868686;
     padding: 0 16px;
-    height: 32px;
+    height: 26px;
     font-size: 12px;
-    line-height: 30px;
-    border-radius: 18px;
+    line-height: 24px;
+    border-radius: 15px;
     margin-right: 10px;
     margin-top: 5px;
 }
 
-.todo-item-time span i {
-    color: #ffffff;
-    font-size: 18px;
-    padding-right: 10px;
-    animation: blink 1s infinite;
+.completed-done {
+    text-decoration: line-through;
+}
+.completed-bg {
+    background-color: #ddd;
+}
+.icon-size-16 {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+/*중요도 아이콘*/
+.priority-icon {
+    font-size: 16px;
+    transition: transform 1s;
+}
+
+.priority-Waiting {
+    color: grey;
+}
+
+.priority-Proceeding {
+    color: #198754;
+}
+
+.priority-Complete {
+    color: #dc3545;
+}
+
+.animate-icon {
+    /* animation: grow-shrink 1s infinite; */
+    /* animation: blink 1s infinite; */
 }
 @keyframes blink {
     0% {
-        color: red;
         opacity: 1;
     }
     50% {
@@ -93,7 +99,31 @@ body {
         opacity: 1;
     }
     100% {
-        color: red;
         opacity: 1;
     }
+}
+
+/*중요도 아이콘*/
+
+.date-box {
+    border: solid 1px #dddddd;
+}
+.date-box:active {
+    border: 0;
+}
+.date-box:focus {
+    /* color: var(--bs-body-color); */
+    /* background-color: var(--bs-body-bg); */
+    /* border-color: #86b7fe; */
+    /* outline: 0; */
+    box-shadow: none;
+    border-color: #86b7fe;
+}
+
+.form-control:focus {
+    /* color: var(--bs-body-color); */
+    /* background-color: var(--bs-body-bg); */
+    /* border-color: #86b7fe; */
+    /* outline: 0; */
+    box-shadow: none;
 }

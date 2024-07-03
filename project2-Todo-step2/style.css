@@ -1,0 +1,201 @@
+body {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+}
+
+/* a 태그의 텍스트 스타일 제거 */
+a {
+    text-decoration: none;
+    /* 밑줄 제거 */
+    color: inherit;
+    /* 부모 요소의 글자 색상과 동일하게 */
+    font-weight: normal;
+    /* 기본 글꼴 두께로 설정 */
+}
+
+.theme-toggle-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+}
+
+.container {
+    position: relative;
+    /* max-width: 950px; */
+    /* min-height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px; */
+}
+
+.nav {
+    position: relative;
+}
+
+.nav-box {
+    display: flex;
+}
+
+#under-line {
+    height: 4px;
+    background-color: #dc3545;
+    position: absolute;
+    left: 0;
+    top: 42px;
+    padding: 0;
+    transition: left 0.3s ease;
+    z-index: 10;
+}
+
+.weather-box div {
+    border-radius: .25rem;
+    overflow: hidden;
+}
+
+.nav-item-icon {
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-item-icon {
+        margin-top: 20px;
+        /* 상단 마진 20px 적용 */
+        margin-left: 0px;
+    }
+}
+
+.nav-item-icon-link {
+    margin: 0 8px;
+}
+
+.priority-icon {
+    font-size: 20px !important;
+}
+
+.nav-item-icon-link:hover {
+    transform: scale(1.2);
+    /* 120% 크기 */
+    transition: transform 0.3s;
+    /* 부드러운 전환 효과 */
+}
+
+.todo-item-box {
+    margin-right: 10px;
+}
+
+.btn-group {
+    min-width: 115px;
+}
+
+.todo-item span {
+    float: left;
+    background-color: #f5f5f5;
+    color: #868686;
+    padding: 0 16px;
+    height: 26px;
+    font-size: 12px;
+    line-height: 24px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.todo-item-icon {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.completed-done {
+    text-decoration: line-through;
+}
+
+.completed-bg {
+    background-color: #ddd;
+}
+
+.icon-size-16 {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+/*중요도 아이콘*/
+.priority-icon {
+    font-size: 16px;
+    transition: transform 1s;
+}
+
+.priority-Waiting {
+    color: grey;
+}
+
+.priority-Proceeding {
+    color: #198754;
+}
+
+.priority-Complete {
+    color: #dc3545;
+}
+
+.animate-icon {
+    /* animation: grow-shrink 1s infinite; */
+    /* animation: blink 1s infinite; */
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        color: rgb(255, 217, 5);
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/*중요도 아이콘*/
+
+.date-box {
+    border: solid 1px #dddddd;
+}
+
+.date-box:active {
+    border: 0;
+}
+
+.date-box:focus {
+    /* color: var(--bs-body-color); */
+    /* background-color: var(--bs-body-bg); */
+    /* border-color: #86b7fe; */
+    /* outline: 0; */
+    box-shadow: none;
+    border-color: #86b7fe;
+}
+
+.form-control:focus {
+    /* color: var(--bs-body-color); */
+    /* background-color: var(--bs-body-bg); */
+    /* border-color: #86b7fe; */
+    /* outline: 0; */
+    box-shadow: none;
+}
+
+.checkbox-a {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.todo-box {
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.readme-red {
+    color: #dc3545;
+}
