@@ -1,84 +1,6 @@
 body {
-    background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin: 0;
-}
-
-/* a 태그의 텍스트 스타일 제거 */
-a {
-    text-decoration: none;
-    /* 밑줄 제거 */
-    color: inherit;
-    /* 부모 요소의 글자 색상과 동일하게 */
-    font-weight: normal;
-    /* 기본 글꼴 두께로 설정 */
-}
-
-.container {
-    height: 70vh;
-    margin-bottom: 20px;
-}
-
-h1 {
-    color: #ffffff;
-}
-
-.mbox {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 0.5rem;
-    height: 100%;
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
-}
-
-@media screen and (max-width: 992px) {
-    .col-lg-1 {
-        margin-bottom: 20px;
-    }
-}
-
-.nav-item-box {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-@media screen and (min-width: 992px) {
-    .nav-item-box {
-        flex-direction: column;
-    }
-
-    .nav-item-icon {
-        padding-bottom: 15px;
-    }
-}
-
-.nav-item-icon {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 25px !important;
-    font-weight: bold;
-
-}
-
-.nav-item-icon-link:hover {
-    transform: scale(1.2);
-    /* 120% 크기 */
-    transition: transform 0.3s;
-    /* 부드러운 전환 효과 */
-}
-
-.custom-row-margin {
-    margin: 20px;
-    /* 원하는 간격으로 조정 */
-}
-
-.container h1 {
-    padding: 20px 0;
+    --bg-color: #ffffff;
+    --text-color: #000000;
 }
 
 .theme-toggle-button {
@@ -88,12 +10,15 @@ h1 {
     font-size: 12px;
 }
 
-.nav {
+.container {
     position: relative;
+    /* max-width: 950px; */
+    /* min-height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px; */
 }
 
-.nav-box {
-    display: flex;
+.nav {
+    position: relative;
 }
 
 #under-line {
@@ -101,14 +26,13 @@ h1 {
     background-color: #dc3545;
     position: absolute;
     left: 0;
-    top: 42px;
+    bottom: -5px;
     padding: 0;
     transition: left 0.3s ease;
-    z-index: 10;
 }
 
 .weather-box div {
-    border-radius: .5rem;
+    border-radius: .25rem;
     overflow: hidden;
 }
 
@@ -120,9 +44,9 @@ h1 {
     min-width: 115px;
 }
 
-.todo-item span {
+.todo-item-time span {
     float: left;
-    background-color: #f5f5f5;
+    background-color: #e4e4e4;
     color: #868686;
     padding: 0 16px;
     height: 26px;
@@ -133,19 +57,12 @@ h1 {
     margin-top: 5px;
 }
 
-.todo-item-icon {
-    font-size: 25px;
-    font-weight: bold;
-}
-
 .completed-done {
     text-decoration: line-through;
 }
-
 .completed-bg {
     background-color: #ddd;
 }
-
 .icon-size-16 {
     font-size: 16px;
     font-weight: 800;
@@ -173,17 +90,14 @@ h1 {
     /* animation: grow-shrink 1s infinite; */
     /* animation: blink 1s infinite; */
 }
-
 @keyframes blink {
     0% {
         opacity: 1;
     }
-
     50% {
         color: rgb(255, 217, 5);
         opacity: 1;
     }
-
     100% {
         opacity: 1;
     }
@@ -194,11 +108,9 @@ h1 {
 .date-box {
     border: solid 1px #dddddd;
 }
-
 .date-box:active {
     border: 0;
 }
-
 .date-box:focus {
     /* color: var(--bs-body-color); */
     /* background-color: var(--bs-body-bg); */
@@ -214,20 +126,4 @@ h1 {
     /* border-color: #86b7fe; */
     /* outline: 0; */
     box-shadow: none;
-}
-
-.checkbox-a {
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-}
-
-.todo-box {
-    display: flex;
-    margin-right: 10px;
-    align-items: center;
-}
-
-.readme-red {
-    color: #dc3545;
 }

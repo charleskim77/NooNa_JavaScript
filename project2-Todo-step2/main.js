@@ -13,11 +13,12 @@
 let navAll = document.getElementById('nav-all'); // 네비게이션 요소 
 let navActive = document.getElementById('nav-active'); // 네비게이션 요소 
 let navCompleted = document.getElementById('nav-completed'); // 네비게이션 요소
-let underLine = document.getElementById('under-line'); // 언더 라인
+const underLine = document.getElementById('under-line');
 let taskInput = document.getElementById("task-input"); //입력 내용 박스
 let addBtn = document.getElementById("add-btn"); //입력 내용 추가 버튼
 let taskList = []; //리스트
 let taskTime = []; // 시간 리스트
+
 
 
 // 현재 시간을 'Y-m-d H:i:s' 형식으로 포맷팅하는 함수
@@ -41,7 +42,7 @@ function addTask() {
         uid: randomID(),
         taskContent: taskInput.value,
         dueDate: document.getElementById('due-date').value, // 날짜
-        priority: document.getElementById('priority-select').value, // 일정 구분
+        priority: document.getElementById('priority-select').value, // 아이콘
         isComplate: false
     }
 
@@ -52,7 +53,7 @@ function addTask() {
         render();
         taskInput.value = ""; // 할일 입력창 초기화
         document.getElementById('due-date').value = ""; // 데이터 선택 초기화
-        document.getElementById('priority-select').value = "common"; // 일정 구분 초기화
+        document.getElementById('priority-select').value = "Waiting"; // 진행 상태 초기화
     }
 }
 
@@ -62,62 +63,32 @@ function render() {
     for (let i = 0; i < taskList.length; i++) {
 
         let priorityClass = `priority-${taskList[i].priority}`;
-        let priorityIcon = '';
+        let priorityIcon = `<i class="bi  bi-clock priority-icon ${priorityClass}"></i>`;
 
-        // priority 값에 따라 아이콘과 색상 지정
-        switch (taskList[i].priority) {
-            case 'common':
-                priorityIcon = '<i class="bi bi-clock priority-icon text-secondary"></i>';
-                break;
-            case 'important':
-                priorityIcon = '<i class="bi bi-exclamation-circle priority-icon text-danger"></i>';
-                break;
-            case 'family':
-                priorityIcon = '<i class="bi bi-house priority-icon text-primary"></i>';
-                break;
-            case 'work':
-                priorityIcon = '<i class="bi bi-briefcase priority-icon text-warning"></i>';
-                break;
-            case 'school':
-                priorityIcon = '<i class="bi bi-pencil priority-icon text-info"></i>';
-                break;
-            case 'anniversary':
-                priorityIcon = '<i class="bi bi-heart priority-icon text-danger"></i>';
-                break;
-            default:
-                priorityIcon = '<i class="bi bi-clock priority-icon text-secondary"></i>';
-                break;
+        if (taskList[i].priority !== 'Waiting') {
+            priorityIcon = `<i class="bi bi-clock-fill priority-icon ${priorityClass} animate-icon"></i>`;
         }
-
-        // 한글로 변환된 priority 값 priorityText 지정
-        let priorityText = getPriorityInKorean(taskList[i].priority);
 
         if (taskList[i].isComplate == true) {
             resultHTML += `<div class="todo-item list-group-item d-flex justify-content-between align-items-center completed-bg">
-                                <div class="todo-box completed-done">
-                                    <div><input type="checkbox" class="form-check-input me-2 task-checkbox" data-uid="${taskList[i].uid}"></div>
-                                    <div class="todo-item-box">
-                                        <div> ${taskList[i].taskContent} </div>
-                                        <div class="todo-item"><span class="todo-item-icon">${priorityIcon} ${priorityText} </span> <span>작성일자: ${taskTime[i]}</span> <span>완료 예정일: ${taskList[i].dueDate}</span></div>
-                                    </div>
+                                <div class="todo-item-box completed-done">
+                                    <div>${taskList[i].taskContent}</div>
+                                    <div class="todo-item-time"><span>작성일자: ${taskTime[i]}</span> <span>완료 예정일: ${taskList[i].dueDate}</span></div>
                                 </div>
-                                <div class="btn-group"><button onclick="toggleComplete('${taskList[i].uid}')" class="btn btn-success check-button"><i class="bi bi-check-lg icon-size-16"></i>
-                                    </button><button class="btn btn-warning" onclick="editTask('${taskList[i].uid}')">수정</button><button class="btn btn-danger" onclick="confirmDeleteTask('${taskList[i].uid}')">삭제</button>
-                                </div>
-                            </div>`;
+                            <div class="btn-group"><button onclick="toggleComplete('${taskList[i].uid}')" class="btn btn-success check-button"><i class="bi bi-arrow-clockwise icon-size-16"></i>
+                                </button><button class="btn btn-danger" onclick="confirmDeleteTask('${taskList[i].uid}')">삭제</button></div>
+                            </div>
+                        </div>`;
         } else {
             resultHTML += `<div class="todo-item list-group-item d-flex justify-content-between align-items-center">
-                                <div class="todo-box">
-                                    <div><input type="checkbox" class="form-check-input me-2 task-checkbox" data-uid="${taskList[i].uid}"></div>
-                                    <div class="todo-item-box">
-                                        <div> ${taskList[i].taskContent} </div>
-                                        <div class="todo-item"><span class="todo-item-icon">${priorityIcon} ${priorityText} </span> <span>작성일자: ${taskTime[i]}</span> <span>완료 예정일: ${taskList[i].dueDate}</span></div>
-                                    </div>
+                                <div class="todo-item-box">
+                                    <div> ${taskList[i].taskContent} </div>
+                                    <div class="todo-item-time"><span>${priorityIcon} ${taskList[i].priority} </span> <span>작성일자: ${taskTime[i]}</span> <span>완료 예정일: ${taskList[i].dueDate}</span></div>
                                 </div>
-                                <div class="btn-group"><button onclick="toggleComplete('${taskList[i].uid}')" class="btn btn-success check-button"><i class="bi bi-check-lg icon-size-16"></i>
-                                    </button><button class="btn btn-warning" onclick="editTask('${taskList[i].uid}')">수정</button><button class="btn btn-danger" onclick="confirmDeleteTask('${taskList[i].uid}')">삭제</button>
-                                </div>
-                            </div>`;
+                            <div class="btn-group"><button onclick="toggleComplete('${taskList[i].uid}')" class="btn btn-success check-button"><i class="bi bi-check-lg icon-size-16"></i>
+                                </button><button class="btn btn-warning" onclick="editTask('${taskList[i].uid}')">수정</button><button class="btn btn-danger" onclick="confirmDeleteTask('${taskList[i].uid}')">삭제</button></div>
+                            </div>
+                        </div>`;
         }
     }
     document.getElementById("task-board").innerHTML = resultHTML;
@@ -136,12 +107,8 @@ function toggleComplete(uid) {
 
 }
 
-const deleteSound = document.getElementById('deleteSound'); // 효과음 변수로
-
-// 삭제 버튼 클릭시 alert 창 띄우고 효과음 재생, 확인 시 아래 deleteTask 실행
+//삭제 버튼 클릭시 alert 창 뛰우고 확인 시 아래 deleteTask 실행
 function confirmDeleteTask(uid) {
-    // 효과음 재생
-    deleteSound.play();
     if (confirm('할 일을 삭제하시겠습니까?')) {
         deleteTask(uid);
     }
@@ -167,11 +134,6 @@ function editTask(uid) {
         document.getElementById('due-date').value = task.dueDate;
         document.getElementById('priority-select').value = task.priority;
 
-        // 입력창 배경색을 노란색으로 변경
-        taskInput.style.backgroundColor = "#ffc107";
-        document.getElementById('due-date').style.backgroundColor = "#ffc107";
-        document.getElementById('priority-select').style.backgroundColor = "#ffc107";
-
         // 기존 addTask 대신 updateTask 호출로 변경
         addBtn.removeEventListener('click', addTask);
         addBtn.addEventListener('click', function updateTask() {
@@ -182,12 +144,7 @@ function editTask(uid) {
             render();
             taskInput.value = "";
             document.getElementById('due-date').value = "";
-            document.getElementById('priority-select').value = "common";
-
-            // 입력창 배경색을 원래대로 변경
-            taskInput.style.backgroundColor = "";
-            document.getElementById('due-date').style.backgroundColor = "";
-            document.getElementById('priority-select').style.backgroundColor = "";
+            document.getElementById('priority-select').value = "Waiting";
 
             // 다시 addTask로 이벤트 리스너 변경
             addBtn.removeEventListener('click', updateTask);
@@ -201,25 +158,29 @@ function randomID() {
     return Math.random().toString(36).substr(2, 16);
 }
 
-// priority 값을 한글로 변환
-function getPriorityInKorean(priority) {
-    switch (priority) {
-        case 'common':
-            return '일반일정';
-        case 'important':
-            return '중요일정';
-        case 'family':
-            return '가족행사';
-        case 'work':
-            return '회사일정';
-        case 'school':
-            return '학교일정';
-        case 'anniversary':
-            return '기념일';
-        default:
-            return '일반일정';
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 네비게이션 메뉴 클릭 이벤트
 navAll.addEventListener('click', () => {
@@ -263,32 +224,3 @@ document.addEventListener('DOMContentLoaded', () => {
         setActiveNav(activeNav);
     }
 });
-
-
-// 선택 삭제 변수 추가
-let selectAllCheckbox = document.getElementById('select-all');
-let deleteSelectedBtn = document.getElementById('delete-selected');
-
-// 선택 삭제 이벤트 리스너 추가
-selectAllCheckbox.addEventListener('change', toggleSelectAll);
-deleteSelectedBtn.addEventListener('click', deleteSelected);
-
-// 전체 선택 토글 함수
-function toggleSelectAll() {
-    let isChecked = selectAllCheckbox.checked;
-    document.querySelectorAll('.task-checkbox').forEach(checkbox => {
-        checkbox.checked = isChecked;
-    });
-}
-
-// 선택된 항목 삭제 함수
-function deleteSelected() {
-    deleteSound.play();
-    if (confirm('선택한 항목을 삭제하시겠습니까?')) {
-        let selectedTasks = document.querySelectorAll('.task-checkbox:checked');
-        selectedTasks.forEach(checkbox => {
-            deleteTask(checkbox.dataset.uid);
-        });
-        selectAllCheckbox.checked = false;
-    }
-}
