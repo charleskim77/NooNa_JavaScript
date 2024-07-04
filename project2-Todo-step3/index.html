@@ -12,8 +12,16 @@
 </head>
 
 <body class="pro-edited-element-000">
-    <div class="container mt-5">
-        <h1 class="two-lines text-center">To-Do List<span class="small-star" data-animation="" style="transform: rotate(-20deg) translate(-11px, 1px); --playState: running;"></span></h1>
+    <div class="container">
+        <div class="row mt-3 mb-3">
+            <div class="col-lg-1 icon-box">
+                <img src="img/icon_list.gif">
+            </div>
+            <div class="col-lg-11">
+                <h1 class="two-lines text-center">To-Do List<span class="small-star" data-animation="" style="transform: rotate(-20deg) translate(-11px, 1px); --playState: running;"></span></h1>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-lg-1">
                 <div class="mbox">
@@ -28,7 +36,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-11">
+            <div class="col-lg-11 list-box">
+                <div class="time-box">
+                    <div id="date"></div><div id="time"></div>
+                </div>
                 <div class="mbox">
                     <!-- 네비게이션 메뉴 -->
                     <ul class="nav nav-pills mb-3">
@@ -96,6 +107,7 @@
                 <li> <b>일정 입력 시 완료 예정일, 일정 종류 선택 추가</li>
                 <li> <b>일정 리스트에서 일정 편집 기능 추가 </li>
                 <li> <b>일정 리스트에서 선택 삭제 및 전체 선택 후 삭제 추가 </li>
+                <li> <b>오늘 날짜 및 요일 / 현재 시간 노출 추가 </li>
                 <li><i class="bi bi-calendar-day text-secondary"></i> 오늘 날짜 완료 예정일 출력</li>
                 <li><i class="bi bi-clock text-secondary"></i> 일반일정 리스트 출력</li>
                 <li><i class="bi bi-exclamation-circle text-danger"></i> 중요일정 리스트 출력</li>

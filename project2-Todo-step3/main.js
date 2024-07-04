@@ -339,3 +339,24 @@ function deleteSelected() {
         selectAllCheckbox.checked = false;
     }
 }
+
+function displayDateTime() {
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = now.toLocaleString('default', {
+        month: 'short'
+    });
+    let date = now.getDate();
+    let day = now.toLocaleString('default', {
+        weekday: 'short'
+    });
+    let time = now.toLocaleTimeString('en-US', {
+        timeZone: 'Asia/Seoul'
+    });
+    // let dateString = month + ' ' + date + '일 ' + '(' + day + ') ';
+    let dateString = year + '년' + ' ' + month + ' ' + date + '일 ' + '(' + day + ') ';
+    let timeString = time;
+    document.getElementById('date').innerHTML = dateString;
+    document.getElementById('time').innerHTML = timeString;
+}
+setInterval(displayDateTime, 1000); // 1초마다 갱신

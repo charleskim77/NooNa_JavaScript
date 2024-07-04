@@ -1,5 +1,4 @@
 body {
-    position: relative;
     /* background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%); */
     background-image: radial-gradient(147% 114% at 50% 103%, #dedede 5.3%, #dedede 20.1%, #59a3bd 30.5%, #1c4460 50%, #0b1117 70%), radial-gradient(147% 114% at 50% 103%, #dedede 5.3%, #dedede 20.1%, #59a3bd 30.5%, #1c4460 50%, #0b1117 70%), radial-gradient(147% 114% at 50% 103%, #dedede 5.3%, #dedede 20.1%, #59a3bd 30.5%, #1c4460 50%, #0b1117 70%), radial-gradient(147% 114% at 50% 103%, #dedede 5.3%, #dedede 20.1%, #59a3bd 30.5%, #1c4460 50%, #0b1117 70%);
     background-size: cover;
@@ -60,11 +59,52 @@ h1 {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
+.icon-box {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 28px;
+    color: #fff;
+}
+.icon-box img {
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.list-box {
+    position: relative;
+}
+
+.time-box {
+    position: absolute;
+    top: 10px;
+    right: 32px;
+    display: flex;
+}
+.time-box div{
+    background-color: #ffffff;
+    color: #868686;
+    padding: 0 16px;
+    height: 26px;
+    font-size: 14px;
+    line-height: 24px;
+    border-radius: 15px;
+    margin-left: 10px;
+    margin-top: 5px;
+    z-index: 20;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 @media screen and (max-width: 992px) {
     .col-lg-1 {
         margin-bottom: 20px;
     }
+    .icon-box {
+        display: none;
+    }
 }
+
 
 .nav-item-box {
     display: flex;
@@ -271,3 +311,4 @@ h1 {
 .readme-red {
     color: #dc3545;
 }
+
