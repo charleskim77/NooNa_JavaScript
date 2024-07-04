@@ -1,4 +1,5 @@
 body {
+    position: relative;
     /* background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%); */
     background-image: radial-gradient(147% 114% at 50% 103%, #dedede 5.3%, #dedede 20.1%, #59a3bd 30.5%, #1c4460 50%, #0b1117 70%), radial-gradient(147% 114% at 50% 103%, #dedede 5.3%, #dedede 20.1%, #59a3bd 30.5%, #1c4460 50%, #0b1117 70%), radial-gradient(147% 114% at 50% 103%, #dedede 5.3%, #dedede 20.1%, #59a3bd 30.5%, #1c4460 50%, #0b1117 70%), radial-gradient(147% 114% at 50% 103%, #dedede 5.3%, #dedede 20.1%, #59a3bd 30.5%, #1c4460 50%, #0b1117 70%);
     background-size: cover;
@@ -10,13 +11,13 @@ body {
 body::after {
     background-color: initial;
     background-image: linear-gradient(rgba(37, 37, 40, 0) 0, rgba(37, 37, 40, .027) 11.87%, rgba(37, 37, 40, .106) 22.5%, rgba(37, 37, 40, .216) 32.18%, rgba(37, 37, 40, .353) 41.25%, rgba(37, 37, 40, .5) 50%, rgba(37, 37, 40, .647) 58.75%, rgba(37, 37, 40, .784) 67.82%, rgba(37, 37, 40, .894) 77.5%, rgba(37, 37, 40, .973) 88.13%, #252528 100%);
-    bottom: 0;
+    bottom: -50px;
     content: "";
-    height:200px;
+    height: 200px;
     left: 0;
     position: absolute;
     width: 100%;
-  }
+}
 
 body::before {
     background-color: initial;
@@ -27,8 +28,8 @@ body::before {
     display: block;
     height: 1px;
     width: 1px;
-  }
-  
+}
+
 
 
 /* a 태그의 텍스트 스타일 제거 */
@@ -42,8 +43,8 @@ a {
 }
 
 .container {
-    height: 70vh;
     margin-bottom: 20px;
+    height: 93vh;
 }
 
 h1 {
@@ -251,6 +252,20 @@ h1 {
     display: flex;
     margin-right: 10px;
     align-items: center;
+}
+
+.readme {
+    color: #ffffff;
+}
+
+.readme li {
+    padding: 10px 0;
+}
+
+.readme li i {
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px 7px;
 }
 
 .readme-red {
