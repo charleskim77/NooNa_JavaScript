@@ -33,7 +33,8 @@ function getCurrentTime() {
     return `${year}-${month}-${day} ${hours}:${minutes}`;
 }
 
-addBtn.addEventListener('click', addTask) //입력 내용 + 버튼 클릭 이벤트
+//입력 내용 + 버튼 클릭 이벤트
+addBtn.addEventListener('click', addTask) 
 
 // 할일 추가 함수
 function addTask() {
@@ -58,14 +59,17 @@ function addTask() {
 
 
 function render() {
-    let resultHTML = '';
-    for (let i = 0; i < taskList.length; i++) {
+    renderFilteredTasks(taskList);
+}
 
-        let priorityClass = `priority-${taskList[i].priority}`;
+function renderFilteredTasks(filteredTasks) {
+    let resultHTML = '';
+    for (let i = 0; i < filteredTasks.length; i++) {
+        let priorityClass = `priority-${filteredTasks[i].priority}`;
         let priorityIcon = '';
 
         // priority 값에 따라 아이콘과 색상 지정
-        switch (taskList[i].priority) {
+        switch (filteredTasks[i].priority) {
             case 'common':
                 priorityIcon = '<i class="bi bi-clock priority-icon text-secondary"></i>';
                 break;
@@ -90,32 +94,32 @@ function render() {
         }
 
         // 한글로 변환된 priority 값 priorityText 지정
-        let priorityText = getPriorityInKorean(taskList[i].priority);
+        let priorityText = getPriorityInKorean(filteredTasks[i].priority);
 
-        if (taskList[i].isComplate == true) {
+        if (filteredTasks[i].isComplate == true) {
             resultHTML += `<div class="todo-item list-group-item d-flex justify-content-between align-items-center completed-bg">
                                 <div class="todo-box completed-done">
-                                    <div><input type="checkbox" class="form-check-input me-2 task-checkbox" data-uid="${taskList[i].uid}"></div>
+                                    <div><input type="checkbox" class="form-check-input me-2 task-checkbox" data-uid="${filteredTasks[i].uid}"></div>
                                     <div class="todo-item-box">
-                                        <div> ${taskList[i].taskContent} </div>
-                                        <div class="todo-item"><span class="todo-item-icon">${priorityIcon} ${priorityText} </span> <span>작성일자: ${taskTime[i]}</span> <span>완료 예정일: ${taskList[i].dueDate}</span></div>
+                                        <div> ${filteredTasks[i].taskContent} </div>
+                                        <div class="todo-item"><span class="todo-item-icon">${priorityIcon} ${priorityText} </span> <span>작성일자: ${taskTime[i]}</span> <span>완료 예정일: ${filteredTasks[i].dueDate}</span></div>
                                     </div>
                                 </div>
-                                <div class="btn-group"><button onclick="toggleComplete('${taskList[i].uid}')" class="btn btn-success check-button"><i class="bi bi-check-lg icon-size-16"></i>
-                                    </button><button class="btn btn-warning" onclick="editTask('${taskList[i].uid}')">수정</button><button class="btn btn-danger" onclick="confirmDeleteTask('${taskList[i].uid}')">삭제</button>
+                                <div class="btn-group"><button onclick="toggleComplete('${filteredTasks[i].uid}')" class="btn btn-success check-button"><i class="bi bi-check-lg icon-size-16"></i>
+                                    </button><button class="btn btn-warning" onclick="editTask('${filteredTasks[i].uid}')">수정</button><button class="btn btn-danger" onclick="confirmDeleteTask('${filteredTasks[i].uid}')">삭제</button>
                                 </div>
                             </div>`;
         } else {
             resultHTML += `<div class="todo-item list-group-item d-flex justify-content-between align-items-center">
                                 <div class="todo-box">
-                                    <div><input type="checkbox" class="form-check-input me-2 task-checkbox" data-uid="${taskList[i].uid}"></div>
+                                    <div><input type="checkbox" class="form-check-input me-2 task-checkbox" data-uid="${filteredTasks[i].uid}"></div>
                                     <div class="todo-item-box">
-                                        <div> ${taskList[i].taskContent} </div>
-                                        <div class="todo-item"><span class="todo-item-icon">${priorityIcon} ${priorityText} </span> <span>작성일자: ${taskTime[i]}</span> <span>완료 예정일: ${taskList[i].dueDate}</span></div>
+                                        <div> ${filteredTasks[i].taskContent} </div>
+                                        <div class="todo-item"><span class="todo-item-icon">${priorityIcon} ${priorityText} </span> <span>작성일자: ${taskTime[i]}</span> <span>완료 예정일: ${filteredTasks[i].dueDate}</span></div>
                                     </div>
                                 </div>
-                                <div class="btn-group"><button onclick="toggleComplete('${taskList[i].uid}')" class="btn btn-success check-button"><i class="bi bi-check-lg icon-size-16"></i>
-                                    </button><button class="btn btn-warning" onclick="editTask('${taskList[i].uid}')">수정</button><button class="btn btn-danger" onclick="confirmDeleteTask('${taskList[i].uid}')">삭제</button>
+                                <div class="btn-group"><button onclick="toggleComplete('${filteredTasks[i].uid}')" class="btn btn-success check-button"><i class="bi bi-check-lg icon-size-16"></i>
+                                    </button><button class="btn btn-warning" onclick="editTask('${filteredTasks[i].uid}')">수정</button><button class="btn btn-danger" onclick="confirmDeleteTask('${filteredTasks[i].uid}')">삭제</button>
                                 </div>
                             </div>`;
         }
@@ -221,25 +225,69 @@ function getPriorityInKorean(priority) {
     }
 }
 
-// 네비게이션 메뉴 클릭 이벤트
+// 일정별 아이콘 필터 값을 적용
+document.querySelector('#nav-item-today').addEventListener('click', (e) => {
+    e.preventDefault();
+    let today = new Date().toISOString().split('T')[0];
+    let todayTasks = taskList.filter(task => task.dueDate === today);
+    renderFilteredTasks(todayTasks);
+});
+
+document.querySelector('#nav-item-common').addEventListener('click', (e) => {
+    e.preventDefault();
+    let commonTasks = taskList.filter(task => task.priority === 'common');
+    renderFilteredTasks(commonTasks);
+});
+
+document.querySelector('#nav-item-important').addEventListener('click', (e) => {
+    e.preventDefault();
+    let importantTasks = taskList.filter(task => task.priority === 'important');
+    renderFilteredTasks(importantTasks);
+});
+
+document.querySelector('#nav-item-family').addEventListener('click', (e) => {
+    e.preventDefault();
+    let familyTasks = taskList.filter(task => task.priority === 'family');
+    renderFilteredTasks(familyTasks);
+});
+
+document.querySelector('#nav-item-work').addEventListener('click', (e) => {
+    e.preventDefault();
+    let workTasks = taskList.filter(task => task.priority === 'work');
+    renderFilteredTasks(workTasks);
+});
+
+document.querySelector('#nav-item-school').addEventListener('click', (e) => {
+    e.preventDefault();
+    let schoolTasks = taskList.filter(task => task.priority === 'school');
+    renderFilteredTasks(schoolTasks);
+});
+
+document.querySelector('#nav-item-anniversary').addEventListener('click', (e) => {
+    e.preventDefault();
+    let anniversaryTasks = taskList.filter(task => task.priority === 'anniversary');
+    renderFilteredTasks(anniversaryTasks);
+});
+
+
+// 네비게이션 메뉴
 navAll.addEventListener('click', () => {
     setActiveNav(navAll);
+    renderFilteredTasks(taskList);
 });
 
 navActive.addEventListener('click', () => {
     setActiveNav(navActive);
+    let activeTasks = taskList.filter(task => !task.isComplate);
+    renderFilteredTasks(activeTasks);
 });
 
 navCompleted.addEventListener('click', () => {
     setActiveNav(navCompleted);
+    let completedTasks = taskList.filter(task => task.isComplate);
+    renderFilteredTasks(completedTasks);
 });
 
-function setActiveNav(activeNav) {
-    [navAll, navActive, navCompleted].forEach(nav => {
-        nav.classList.remove('active');
-    });
-    activeNav.classList.add('active');
-}
 
 // 네비게이션 메뉴 언더라인 적용
 function setActiveNav(activeNav) {
@@ -263,7 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setActiveNav(activeNav);
     }
 });
-
 
 // 선택 삭제 변수 추가
 let selectAllCheckbox = document.getElementById('select-all');
