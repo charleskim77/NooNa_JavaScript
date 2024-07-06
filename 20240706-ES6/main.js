@@ -5,11 +5,11 @@ let name="noona's fruit store";
 let fruits = ["banana","apple","mango"];
 let address="Seoul";
 let store = {name:name, fruits:fruits, address:address};
-console.log(store);
+console.log("1번 문제 :", store);
 
 // 1. 답
 const store2 = { name, fruits, address };
-console.log(store2);
+console.log("1번 문제 :", store2);
 `;
 
 // #2
@@ -22,7 +22,7 @@ let store = {name:name, fruits:fruits, address:address};
 
 // 2. 답
 let myinfo = \`제 가게 이름은 \${name} 입니다. 위치는 \${address} 에 있습니다\`;
-console.log(myinfo);
+console.log("2번 문제 :", myinfo);
 `;
 
 
@@ -32,14 +32,14 @@ let myCode3 = `
 function calculate(obj){    // 함수 안을 바꾸시오
     return obj.a+obj.b+obj.c
 }
-console.log(calculate({a: 1, b: 2, c: 3}));
+console.log("3번 문제 :",calculate({a: 1, b: 2, c: 3}));
 
 // 3. 답 
 function calculate2(obj2) {
     let { a, b, c, d } = obj2;
     return a + b + c + d;
 }
-console.log(calculate2({a: 1, b: 2, c: 3, d: 10}));
+console.log("3번 문제 :", calculate2({a: 1, b: 2, c: 3, d: 10}));
 `;
 
 
@@ -69,12 +69,12 @@ let address = {
 function findStore(obj) {
     let { name, address: { city } } = obj;
     return name === "noona store" && city === "Seoul"}
-    console.log(findStore({ name, fruits, address }))
+    console.log("4번 문제 :", findStore({ name, fruits, address }))
 
 
 function findStore2({ name, address: { city } }) {
     return name === "noona store" && city === "Seoul"}
-console.log(findStore2({ name, fruits, address }))
+console.log("4번 문제 :", findStore2({ name, fruits, address }))
 
 `;
 
@@ -95,7 +95,7 @@ function getNumber(){
     let [first, , third, forth, , six, ,  ,  , ten] = array  // 2, 5, 7, 8, 9 건너뛰기
     return {first, third, forth, six, ten}
 }
-console.log(getNumber())
+console.log("5번 문제 :",getNumber())
 `;
 
 
@@ -110,10 +110,10 @@ function getCalendar(first, ...rest) {
         rest[2] === undefined
     );
 }
-console.log(getCalendar() ? "true 입니다" : "false 입니다");
+console.log("6번 문제 :", getCalendar() ? "true 입니다" : "false 입니다");
 
 // 6. 답
-console.log(getCalendar("January", "February", "March") ? "true 입니다" : "false 입니다");
+console.log("6번 문제 :", getCalendar("January", "February", "March") ? "true 입니다" : "false 입니다");
 `;
 
 
@@ -126,7 +126,7 @@ function getMinimum(){
     let b = [54,11,9]
     return Math.min() // 여기를 바꾸시오
 }
-console.log(getMinimum())
+console.log("7번 문제 :", getMinimum())
 
 // 7. 답
 //Math.min() 두 어레이 값들중 가장 작은 값을 반환
@@ -135,7 +135,7 @@ function getMinimum2(){
     let b = [54, 11, 4]
     return Math.min(...a, ...b)
 }
-console.log(getMinimum2())
+console.log("7번 문제 :", getMinimum2())
 
 //Math.max() 3개의 어레이 값들중 가장 큰 값을 반환
 function getMaxmum(){
@@ -144,7 +144,7 @@ function getMaxmum(){
     let c = [554, 111, 104]
     return Math.max(...a, ...b, ...c)
 }
-console.log(getMaxmum())
+console.log("7번 문제 :", getMaxmum())
 
 `;
 
@@ -159,14 +159,14 @@ function sumNumber() {
     };
     return sum(40, 10);
 }
-console.log(sumNumber());
+console.log("8번 문제 :",sumNumber());
 
 // 8. 답
 function sumNumber2() {
     const sum = (a, b) => a + b;
         return (40 + 20);
 }
-console.log(sumNumber2());
+console.log("8번 문제 :", sumNumber2());
 
 `;
 
@@ -186,7 +186,7 @@ function sumNumber() {
         };
     }
 }
-console.log(sumNumber());
+console.log("9번 문제 :",sumNumber());
 
 
 // 9. 답
@@ -194,13 +194,13 @@ let sumNumber2 = () => {
     let addNumber2 = (a => b => c => a + b + c);
     return addNumber2(3)(5)(7);
 }
-console.log(sumNumber2())
+console.log("9번 문제 :",sumNumber2())
 
 function sumNumber3() {
     let addNumber3 = a => b => c => a + b + c;
     return addNumber3(1)(125)(3);
 }
-console.log(sumNumber3())
+console.log("9번 문제 :", sumNumber3());
 `;
 
 
