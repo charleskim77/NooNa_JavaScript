@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/javascript.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>배열함수 문제</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>배열함수 문제</h1>
+        <div class="sbox">
+            <h3>아래 문제에 사용되는 기본 배열</h3>
+            <pre><code id="codeDisplay" class="language-javascript"></code></pre>
+        </div>
+
+        <div class="sbox" data-problem-number="1">
+            <h3>map 문제 -1 [모든 이름을 대문자로 바꾸어서 출력하시오.]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay1" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution1" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult1" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="2">
+            <h3>map 문제 -2 [성을제외한 이름만 출력하시오.]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay2" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution2" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult2" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="3">
+            <h3>map 문제 -3 [이름을 제외한 성만 출력하시오.]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay3" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution3" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult3" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="4">
+            <h3>map 문제 -4 [전체 이름의 이니셜만 출력하시오.]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay4" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution4" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult4" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="5">
+            <h3>filter 문제 -5 [이름에 소문자 a를 포함한 리스트를 출력하시오.]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay5" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution5" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult5" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="6">
+            <h3>filter 문제 -5 [이름에 같은 글자가 연속해서 들어간 사람을 출력하시오.]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay6" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution6" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult6" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="7">
+            <h3>some 문제 -7 [전체 이름의 길이가 20자 이상인 사람이 있는가?]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay7" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution7" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult7" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="8">
+            <h3>every 문제 -8 [모두의 전체 이름의 길이가 20자 이상인가?]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay8" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution8" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult8" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="9">
+            <h3>every 문제 -9 [모두의 이름에 a가 포함되어 있는가?]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay9" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution9" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult9" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="10">
+            <h3>find 문제 -10 [전체 이름의 길이가 20자 이상인 사람을 출력하세요.]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay10" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution10" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult10" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="11">
+            <h3>find 문제 -11 [미들네임이 포함되어있는 사람을 찾으시오.]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay11" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution11" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult11" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="12">
+            <h3>findIndex 문제 -12 [전체 이름의 길이가 20자 이상인 사람의 인덱스 번호를 찾으시오.]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay12" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution12" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult12" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+        <div class="sbox" data-problem-number="13">
+            <h3>findIndex 문제 -13 [미들네임이 포함되어있는 사람의 인덱스 번호를 찾으시오.]</h3>
+            <div class="pre-box">
+                <div class="pre-left">정답 코드</div>
+                <pre><code id="codeDisplay13" class="language-javascript"></code></pre>
+            </div>
+            <div class="pre-box">
+                <button id="codeExecution13" class="pre-button">코드 실행</button>
+                <pre><code id="codeResult13" class="language-javascript"></code></pre>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            hljs.configure({
+                ignoreUnescapedHTML: true
+            });
+            hljs.highlightAll();
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+.container {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.sbox {
+    margin-bottom: 50px;
+}
+
+.language-javascript {
+    border-radius: 5px;
+}
+
+.pre-box {
+    display: flex;
+    align-items: stretch; /* 이 부분을 추가합니다 */
+    justify-content: space-between;
+    background-color: #282c34;
+    border: solid 10px #c4c4c4;
+    padding: 0px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #abb2bf;
+}
+
+.pre-left {    
+    width: 15%;
+    background-color: rgb(0, 126, 126);
+    color: white;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;=
+}
+
+.pre-box pre {
+    padding: 10px;
+    width: 85%;
+    margin: 0; 
+}
+
+.pre-left span {
+    color: #abb2bf;
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+    height: 100%;
+}
+
+.pre-button {
+    width: 15%;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pre-button.hide {
+    background-color: #008CBA;
+}

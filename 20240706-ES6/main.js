@@ -204,6 +204,8 @@ console.log("9번 문제 :", sumNumber3());
 `;
 
 
+// document.getElementById(`bigbox`).style.background-color = "#f4f4f4";
+document
 
 // 각 코드를 해당하는 요소에 표시
 document.getElementById('codeDisplay').textContent = myCode1;
