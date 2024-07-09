@@ -36,11 +36,20 @@ const getLatestNews = async () => {
 const displayNews = (newsArticles) => {
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerHTML = newsArticles.map(article => `
-        <article class="news-item">
-            <h2 class="news-title">${article.title}</h2>
-            <p class="news-description">${article.description}</p>
-            <a href="${article.url}" target="_blank" class="news-link">Read more</a>
-        </article>
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="card h-100">
+                ${article.urlToImage ? `<img src="${article.urlToImage}" class="card-img-top" alt="${article.title}">` : ''}
+                <div class="card-body">
+                    <h5 class="card-title">${article.title}</h5>
+                    <p class="card-text">${article.description || 'No description available'}</p>
+                    <p class="card-date">${article.author || ' '} / ${article.publishedAt || ' '}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="${article.url}" target="_blank" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+        </div>
     `).join('');
 };
+
 getLatestNews();

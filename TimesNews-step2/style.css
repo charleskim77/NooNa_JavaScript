@@ -1,51 +1,82 @@
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
-    padding: 0;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
+    padding: 30px 0;
+    background-color: #000000;
 }
+
+svg {
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    svg {
+        max-width: 350px;
+    }
+}
+
 
 main {
-    padding: 2rem;
-}
-
-.news-item {
-    border-bottom: 1px solid #ccc;
-    padding: 1rem 0;
-}
-
-.news-title {
-    color: #333;
-}
-
-.news-description {
-    color: #666;
-}
-
-.news-link {
-    display: inline-block;
-    margin-top: 0.5rem;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.news-link:hover {
-    text-decoration: underline;
+    flex: 1;
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    margin-top: auto;
+}
+
+.logo-text {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.main {
+    font-size: 24px;
+}
+
+.tagline {
+    font-size: 12px;
+}
+
+.logo {
+    fill: #00b4a5;
+}
+@media (min-width: 1025px) {
+    .navbar-expand-custom {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .navbar-expand-custom .navbar-nav {
+        flex-direction: row;
+    }
+    .navbar-expand-custom .navbar-nav .nav-link {
+        padding-right: .5rem;
+        padding-left: .5rem;
+    }
+    .navbar-expand-custom .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+    }
+    .navbar-expand-custom .navbar-toggler {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .navbar-expand-custom .navbar-collapse {
+        display: none !important;
+    }
+    .navbar-expand-custom .navbar-collapse.show {
+        display: block !important;
+    }
+    .navbar-expand-custom .navbar-toggler {
+        display: block;
+    }
 }
