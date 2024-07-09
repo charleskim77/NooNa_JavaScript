@@ -1,5 +1,5 @@
 let news = [];
-const API_KEY =`bad7a21cecaa4a4babf650767c4a2b98`;
+const API_KEY =`724a32d25d164af99927618bc2cc1b7e`;
 
 // const getLatestNews = async () => {
 //         const url = new URL(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`);
