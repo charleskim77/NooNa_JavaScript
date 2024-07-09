@@ -1,8 +1,9 @@
 let news = [];
-const API_KEY =`bad7a21cecaa4a4babf650767c4a2b98`;
+const API_KEY =``;
 
 const getLatestNews = async () => {
-        const url = new URL(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`);
+        // const url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`);
+        const url = new URL(`https://relaxed-liger-259fb5.netlify.app/top-headlines`);
         console.log("Requesting url", url);
 
         const response = await fetch(url);

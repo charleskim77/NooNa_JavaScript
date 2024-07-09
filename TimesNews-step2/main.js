@@ -1,5 +1,5 @@
 let news = [];
-const API_KEY =`bad7a21cecaa4a4babf650767c4a2b98`;
+const API_KEY =``;
 
 // const getLatestNews = async () => {
 //         const url = new URL(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`);
@@ -44,9 +44,10 @@ const displayNews = (newsArticles) => {
                     <h5 class="card-title">${article.title}</h5>
                     <p class="card-text">${article.description || 'No description available'}</p>
                     <p class="card-date">${article.author || ' '} / ${article.publishedAt || ' '}</p>
+                    <p class="card-category">Category : ${article.category || ' '}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="${article.url}" target="_blank" class="btn btn-primary">Read more</a>
+                    <a href="${article.url}" target="_blank" class="btn btn-secondary"">Read more</a>
                 </div>
             </div>
         </div>
