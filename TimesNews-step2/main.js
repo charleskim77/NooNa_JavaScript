@@ -1,5 +1,5 @@
 let news = [];
-const API_KEY =``;
+const API_KEY = ``;
 
 // const getLatestNews = async () => {
 //         const url = new URL(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`);
@@ -34,20 +34,21 @@ const getLatestNews = async () => {
     }
 };
 
+//뉴스컨텐츠
 const displayNews = (newsArticles) => {
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerHTML = newsArticles.map(article => `
         <div class="col-lg-6 col-md-6 mb-4">
             <div class="card h-100">
-                ${article.urlToImage ? `<img src="${article.urlToImage}" class="card-img-top" alt="${article.title}">` : ''}
+            ${article.urlToImage ? `<img src="${article.urlToImage}" class="card-img-top" alt="${article.title}">` : '<img src="img/Noimage.jpg" class="card-img-top" alt="No Image Available">'}
                 <div class="card-body">
-                    <h5 class="card-title">${article.title}</h5>
+                    <h5 class="card-title"><a href="${article.url}" target="_blank" class="title_link">${article.title}</a></h5>
                     <p class="card-text">${article.description || 'No description available'}</p>
-                    <p class="card-date">${article.author || ' '} / ${article.publishedAt || ' '}</p>
+                    <p class="card-date">${article.author || ' '} / ${article.publishedAt ? moment(article.publishedAt).fromNow() : ' '}</p>
                     <p class="card-category">Category : ${article.category || ' '}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="${article.url}" target="_blank" class="btn btn-secondary"">Read more</a>
+                    <a href="${article.url}" target="_blank" class="btn btn-secondary">Read more</a>
                 </div>
             </div>
         </div>
@@ -55,3 +56,14 @@ const displayNews = (newsArticles) => {
 };
 
 getLatestNews();
+
+
+//검색창
+document.addEventListener('DOMContentLoaded', function () {
+    const searchIcon = document.getElementById('search-icon');
+    const searchBar = document.getElementById('search-bar');
+
+    searchIcon.addEventListener('click', function () {
+        searchBar.classList.toggle('active');
+    });
+});

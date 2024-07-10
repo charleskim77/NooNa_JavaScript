@@ -5,8 +5,16 @@ body {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+    /* 밑줄 제거 */
+    color: inherit;
+    /* 부모 요소의 색상을 상속받음 */
+}
+
+
 header {
-    padding: 30px 0;
+    padding: 20px 0 50px 0;
     background-color: #000000;
 }
 
@@ -48,35 +56,196 @@ footer {
 .logo {
     fill: #00b4a5;
 }
+
+/*검색창*/
+.search-container {
+    padding: 10px 0;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search-icon {
+    background: none;
+    color: #00b4a5;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.search-bar {
+    display: none;
+    margin-left: 10px;
+}
+
+.search-bar.active {
+    display: flex;
+}
+
+.search-bar input {
+    padding: 5px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-bar input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #00b4a5;
+    color: white;
+    border: 1px solid #00b4a5;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .search-wrapper {
+        position: absolute;
+        top: 18px;
+        justify-content: flex-start;
+        z-index: 1100;
+    }
+
+    .search-bar {
+        flex-grow: 1;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .navbar-brand {
+        display: none;
+    }
+}
+
+
+/*메뉴*/
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.offcanvas {
+    width: 85% !important;
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    body {
+        padding-top: 56px;
+    }
+
+    .navbar-menu-box {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .navbar>.container {
+        justify-content: flex-end;
+    }
+
+    .offcanvas {
+        width: 85% !important;
+    }
+
+    .navbar-nav .dropdown-menu {
+        position: static;
+        float: none;
+    }
+}
+
 @media (min-width: 1025px) {
     .navbar-expand-custom {
         flex-wrap: nowrap;
         justify-content: flex-start;
     }
+
     .navbar-expand-custom .navbar-nav {
         flex-direction: row;
     }
+
     .navbar-expand-custom .navbar-nav .nav-link {
         padding-right: .5rem;
         padding-left: .5rem;
     }
+
     .navbar-expand-custom .navbar-collapse {
         display: flex !important;
         flex-basis: auto;
     }
+
     .navbar-expand-custom .navbar-toggler {
         display: none;
     }
+
+    .navbar-menu-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .offcanvas {
+        position: static !important;
+        visibility: visible !important;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        z-index: auto;
+        display: flex !important;
+        width: auto !important;
+        height: auto;
+        transform: none !important;
+        background-color: transparent;
+        border: 0;
+        transition: none;
+    }
+
+    .offcanvas-header {
+        display: none;
+    }
+
+    .offcanvas-body {
+        display: flex;
+        flex-grow: 0;
+        padding: 0;
+        overflow-y: visible;
+    }
+
+    .navbar-nav .dropdown-menu {
+        position: absolute;
+    }
+
+    body {
+        padding-top: 0;
+        /* 큰 화면에서는 패딩 제거 */
+    }
 }
 
-@media (max-width: 1024px) {
-    .navbar-expand-custom .navbar-collapse {
-        display: none !important;
-    }
-    .navbar-expand-custom .navbar-collapse.show {
-        display: block !important;
-    }
-    .navbar-expand-custom .navbar-toggler {
-        display: block;
-    }
+
+.title_link {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.title_link:hover {
+    font-weight: bold;
+    transform: scale(1.2);
 }
