@@ -541,7 +541,7 @@ footer ul li a {
 .card-bodyaa {
     display: flex;
     height: 100%;
-    padding: 12px 24px 12px 0px;
+    padding: 12px 24px 12px 10px;
     flex-direction: column;
     justify-content: space-between;
 }
