@@ -29,6 +29,10 @@ svg {
     }
 }
 
+.f26930 {
+    color: #f26930;
+}
+
 .logo {
     fill: #f26930;
 }
@@ -109,7 +113,8 @@ footer {
 /*메뉴*/
 .navbar .container {
     position: relative;
-    padding-bottom: 4px; /* 컨테이너 내부 하단에 4px 공간 확보 */
+    padding-bottom: 4px;
+    /* 컨테이너 내부 하단에 4px 공간 확보 */
     align-items: flex-end;
 }
 
@@ -118,11 +123,15 @@ footer {
     display: block;
     position: absolute;
     bottom: 0;
-    left: 12px;  /* 왼쪽에 12px 패딩 적용 */
-    right: 12px; /* 오른쪽에 12px 패딩 적용 */
+    left: 12px;
+    /* 왼쪽에 12px 패딩 적용 */
+    right: 12px;
+    /* 오른쪽에 12px 패딩 적용 */
     height: 4px;
-    background: #f26930; /* 원하는 색상으로 변경 가능 */
-    border-radius: 10px 10px 0 0; /* 상단 모서리만 둥글게 처리 */
+    background: #f26930;
+    /* 원하는 색상으로 변경 가능 */
+    border-radius: 10px 10px 0 0;
+    /* 상단 모서리만 둥글게 처리 */
 }
 
 
@@ -150,6 +159,10 @@ footer {
 
 
 @media (max-width: 1024px) {
+    .top_history {
+        display: none;
+    }
+
     .navbar-menu-box {
         display: flex;
         justify-content: flex-end;
@@ -157,6 +170,7 @@ footer {
 
     .navbar>.container {
         justify-content: space-between;
+        align-items: center;
         position: relative;
     }
 
@@ -168,22 +182,26 @@ footer {
         position: static;
         float: none;
     }
+
     .navbar-expand-custom .navbar-toggler {
         position: absolute;
         right: 12px;
         border-color: #f26930;
     }
 
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f26930' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    .navbar-toggler i {
+        font-size: 28px;
+        color: #f26930;
     }
-    
+
     .navbar-toggler:hover {
-        background-color: rgba(242, 105, 48, 0.1); /* #f26930의 반투명 버전 */
+        background-color: rgba(242, 105, 48, 0.1);
+        /* #f26930의 반투명 버전 */
     }
-    
+
     .navbar-toggler:focus {
-        box-shadow: 0 0 0 0.25rem rgba(242, 105, 48, 0.25); /* #f26930의 반투명 버전으로 포커스 효과 */
+        box-shadow: 0 0 0 0.25rem rgba(242, 105, 48, 0.25);
+        /* #f26930의 반투명 버전으로 포커스 효과 */
     }
 
 }
@@ -270,7 +288,7 @@ footer {
 
 .card-img-container {
     width: 100%;
-    height: 400px;
+    height: 230px;
     overflow: hidden;
 }
 
@@ -278,6 +296,24 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.card-img-row {
+    display: block;
+    overflow: hidden;
+    height: 230px;
+    overflow: hidden;
+}
+
+.card-img-row img {
+    transition: all 0.3s ease;
+    min-height: 100%;
+}
+
+.card-img-row img:hover {
+    font-weight: bold;
+    transform: scale(1.2);
+    transition: all 0.5s ease;
 }
 
 .card-img-container img {
@@ -298,8 +334,8 @@ footer {
 
 .pagination .page-item.active .page-link {
     color: #fff;
-    background-color: #8B4513;
-    border-color: #8B4513;
+    background-color: #f26930;
+    border-color: #f26930;
 }
 
 .pagination .page-item.disabled .page-link {
@@ -308,4 +344,211 @@ footer {
     cursor: auto;
     background-color: #fff;
     border-color: #ddd;
+}
+
+.footer-top {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.footer-top ul {
+    display: flex;
+}
+
+.footer-top ul li {
+    list-style-type: none;
+}
+
+.footer-top ul li a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.footer-li-l li {
+    margin-right: 20px;
+}
+
+.footer-li-r {
+    justify-content: flex-end;
+}
+
+.footer-li-r li {
+    margin-left: 20px;
+}
+
+.footer-top::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    right: 12px;
+    height: 1px;
+    background: #535353;
+    border-radius: 10px 10px 0 0;
+
+}
+
+
+footer h5 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+footer ul li a {
+    font-size: 14px;
+    color: #979fa7;
+}
+
+.form-select {
+    font-size: 14px !important;
+    color: #979fa7 !important;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.social-icons .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    background-color: #555;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-icons .social-icon:hover {
+    background-color: #f26930;
+}
+
+.social-icons .social-icon i {
+    font-size: 15px;
+    color: white;
+}
+
+.social-icons .social-icon:hover {
+    transform: scale(1.2);
+}
+
+.list-inline {
+    display: flex;
+    align-items: center;
+}
+
+.top_history {
+    background-color: #050505;
+    padding: 8px 0;
+    position: relative;
+}
+
+.top_history_content {
+    margin-top: 20px;
+}
+
+.leftSide {
+    padding: 1%;
+}
+
+.leftSide-Since {
+    background-color: #343a40;
+    border-radius: 0.5rem;
+    color: white;
+    padding: 5%;
+    height: 100%;
+}
+
+.rightSide {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rightSide-img {
+    width: 50%;
+    padding: 1%;
+}
+
+.rightSide-img img {
+    width: 100%;
+}
+
+.showMoreBtn.open {
+    transform: rotate(0deg);
+    box-shadow: -2px 0 5px 0 #ddd;
+}
+
+.showMoreBtn {
+    z-index: 100;
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    background-color: #555;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 30px;
+    background-position: -64px -65px;
+    transform: rotate(180deg);
+    box-shadow: 2px 0px 5px 0 #ddd;
+}
+
+.showMoreBtn:hover {
+    background-color: #f26930;
+}
+
+.showMoreBtn i {
+    font-size: 22px;
+    color: white;
+}
+
+.row-cols-auto {
+    margin-top: 10px;
+}
+
+.img-fluid {
+    height: 35px;
+    padding: 5px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-body .card-category {
+    display: none;
+}
+
+.card-date {
+    margin-bottom: 0px;
+}
+
+.card-date span {
+    padding: 5px 15px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+}
+
+.card-bodyaa {
+    display: flex;
+    height: 100%;
+    padding: 12px 24px 12px 0px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-bodyaa .card-date {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+
 }
