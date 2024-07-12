@@ -55,9 +55,11 @@ const getLatestNews = async (page = 1) => {
     currentPage = page;
     const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&page=${page}&pageSize=${PAGE_SIZE}`);
     await updateNewsList(url);
+    
+    // 스포츠 뉴스 다시 표시
+    getSportsNews();
 };
 
-// 검색
 const getNewsByKeyword = async (page = 1) => {
     currentState = 'search';
     currentPage = page;
@@ -69,10 +71,12 @@ const getNewsByKeyword = async (page = 1) => {
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerHTML = `<h2 class="col-12 mb-4">검색어: "${currentKeyword}"에 대한 결과</h2>` + newsContainer.innerHTML;
 
+    // 스포츠 뉴스 컨테이너 배너
+    displaySportsNews([]);
+
     // 검색 후 검색창 비우기
     document.getElementById("search-input").value = '';
 };
-
 
 // 검색 결과 없음
 const displayNoResults = () => {
@@ -109,15 +113,28 @@ const getNewsByCategory = async (event, page = 1) => {
     currentCategory = event.target.textContent.toLowerCase();
     const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&category=${currentCategory}&page=${page}&pageSize=${PAGE_SIZE}`);
     await updateNewsList(url);
+
+    // 스포츠 뉴스 컨테이너 배너
+    displaySportsNews([]);
 };
 
-// Sports 뉴스 표시
+// Sports 뉴스
 const displaySportsNews = (sportsArticles) => {
     const sportsContainer = document.getElementById('news-container-sports');
-    sportsContainer.innerHTML = `
-        <div class="row">        
-            <div class="sports-title"><h3 class="sports-h3">SRORTS</h3></div> 
-            ${sportsArticles.map(article => `
+    
+    // 검색 결과 페이지나 카테고리 결과 페이지일 경우 배너 
+    if (currentState === 'search' || currentState === 'category') {
+        sportsContainer.innerHTML = `
+            <div class="col-12">
+                <img src="img/banner.jpg" alt="배너" class="img-fluid img-banner">
+            </div>
+        `;
+    } else {
+        // 메인 스포츠 뉴스
+        sportsContainer.innerHTML = `
+            <div class="row">
+                <div class="sports-title"><h3 class="sports-h3">SRORTS</h3></div>
+                ${sportsArticles.map(article => `
                 <div class="col-12 col-md-6 col-lg-12 mb-4">
                     <div class="card h-100">
                         <div class="card-body">                        
@@ -132,9 +149,10 @@ const displaySportsNews = (sportsArticles) => {
                         </div>
                     </div>
                 </div>
-            `).join('')}
-        </div>
-    `;
+                `).join('')}
+            </div>
+        `;
+    }
 };
 
 // 뉴스컨텐츠

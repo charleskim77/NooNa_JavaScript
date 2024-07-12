@@ -667,3 +667,10 @@ footer ul li a {
     border-radius: 0.25rem;
     line-height: 45px;
 }
+
+.img-banner {
+    width: 100%;
+    height: auto;
+    border-radius:1rem;
+    overflow: hidden;
+}
