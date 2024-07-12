@@ -171,7 +171,7 @@ const displayNews = (newsArticles) => {
                     <div class="row no-gutters">
                         <div class="col-md-4 card-img-row">
                             <a href="${article.url}" target="_blank" class="title_link">
-                                <img src="${article.urlToImage || 'img/Noimage.jpg'}" class="card-img" alt="${article.title}" onerror="this.onerror=null; this.src='img/Noimage.jpg';">
+                                <img src="${article.urlToImage || 'img/Noimage.jpg'}" class="card-img-top" alt="${article.title}" onerror="this.onerror=null; this.src='img/Noimage.jpg';">
                             </a>
                         </div>
                         <div class="col-md-8">
