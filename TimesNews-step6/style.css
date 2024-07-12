@@ -27,6 +27,12 @@ svg {
     svg {
         height: 35px;
     }
+
+    .search-container .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 }
 
 .f26930 {
@@ -63,6 +69,12 @@ footer {
 /*검색창*/
 .search-container {
     padding: 10px 0;
+}
+
+.search-container .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .search-wrapper {
@@ -463,12 +475,13 @@ footer ul li a {
 }
 
 .rightSide {
-    display: flex;
+    position: relative;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .rightSide-img {
-    width: 50%;
+    width: 100%;
     padding: 1%;
 }
 
@@ -480,6 +493,45 @@ footer ul li a {
     transform: rotate(0deg);
     box-shadow: -2px 0 5px 0 #ddd;
 }
+
+
+.rightSide .swiper-container {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.rightSide .swiper-slide {
+    width: 70%;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.rightSide .swiper-slide-active {
+    opacity: 1;
+}
+
+.rightSide .swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.rightSide .swiper-button-next,
+.rightSide .swiper-button-prev {
+    color: #fff;
+}
+
+.rightSide .swiper-button-next {
+    position: absolute;
+    right: 10px;
+}
+
+.rightSide .swiper-button-prev {
+    position: absolute;
+    left: 10px;
+}
+
 
 .showMoreBtn {
     z-index: 100;
@@ -513,6 +565,16 @@ footer ul li a {
     margin-top: 10px;
 }
 
+.search_nothing {
+    width: 100%;
+    background-color: #f7f7f7;
+    min-height: 800px;
+}
+
+.search_nothing img {
+    width: 60%;
+}
+
 .img-fluid {
     height: 35px;
     padding: 5px;
@@ -541,7 +603,7 @@ footer ul li a {
 .card-bodyaa {
     display: flex;
     height: 100%;
-    padding: 12px 24px 12px 10px;
+    padding: 12px 24px 12px 0px;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -551,4 +613,39 @@ footer ul li a {
     align-items: flex-end;
     height: 100%;
 
+}
+
+.highlight {
+    background-color: #f26a307c;
+    font-weight: bold;
+}
+
+.top-search {
+    display: flex;
+    align-items: center;
+}
+
+.search-value {
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.search-value:hover {
+    color: #f26930;
+    font-weight: bold;
+}
+
+.search-value-list {
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.sports-h3 {
+    text-align: center;
+    background-color: #f26930;
+    color: #ffffff;
+    border-radius: 0.25rem;
+    line-height: 45px;
 }

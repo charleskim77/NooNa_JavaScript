@@ -1,7 +1,8 @@
 let newsList = [];
+let sportsNewsList = [];
 let currentPage = 1;
 let totalResults = 0;
-const PAGE_SIZE = 12;
+const PAGE_SIZE = 11;
 const GROUP_SIZE = 5;
 let currentState = 'latest';
 let currentCategory = '';
@@ -64,9 +65,42 @@ const getNewsByKeyword = async (page = 1) => {
     const url = new URL(`https://relaxed-liger-259fb5.netlify.app/top-headlines?country=kr&q=${currentKeyword}&page=${page}&pageSize=${PAGE_SIZE}`);
     await updateNewsList(url);
 
+    // 검색어를 화면에 표시
+    const newsContainer = document.getElementById('news-container');
+    newsContainer.innerHTML = `<h2 class="col-12 mb-4">검색어: "${currentKeyword}"에 대한 결과</h2>` + newsContainer.innerHTML;
+
     // 검색 후 검색창 비우기
     document.getElementById("search-input").value = '';
 };
+
+
+// 검색 결과 없음
+const displayNoResults = () => {
+    const newsContainer = document.getElementById('news-container');
+    newsContainer.innerHTML = `
+        <div class="col-12 text-center search_nothing">
+            <img src="img/search_nothing.jpg" alt="No results found">
+        </div>
+    `;
+    // 페이지네이션 숨기기
+    document.getElementById('pagination').innerHTML = '';
+};
+
+// 검색어 하잍라이트
+const highlightSearchKeyword = (text, keyword) => {
+    if (!keyword) return text;
+    const regex = new RegExp(`(${keyword})`, 'gi');
+    return text.replace(regex, '<span class="highlight">$1</span>');
+};
+
+// 스포츠뉴스
+const getSportsNews = async () => {
+    const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&category=sports&pageSize=5`);
+    const data = await fetchNews(url);
+    sportsNewsList = data.articles;
+    displaySportsNews(sportsNewsList);
+};
+
 
 // 카테고리
 const getNewsByCategory = async (event, page = 1) => {
@@ -77,51 +111,96 @@ const getNewsByCategory = async (event, page = 1) => {
     await updateNewsList(url);
 };
 
+// Sports 뉴스 표시
+const displaySportsNews = (sportsArticles) => {
+    const sportsContainer = document.getElementById('news-container-sports');
+    sportsContainer.innerHTML = `
+        <div class="row">        
+            <div class="sports-title"><h3 class="sports-h3">SRORTS</h3></div> 
+            ${sportsArticles.map(article => `
+                <div class="col-12 col-md-6 col-lg-12 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">                        
+                            <div class="card-img-container">
+                                <a href="${article.url}" target="_blank" class="title_link">
+                                <img src="${article.urlToImage || 'img/Noimage.jpg'}" class="card-img-top" alt="${article.title}" onerror="this.onerror=null; this.src='img/Noimage.jpg';">
+                                </a>
+                            </div>
+                            <h6 class="card-title"><a href="${article.url}" target="_blank" class="title_link">${article.title}</a></h6>
+                            <p class="card-text small">${truncateText(article.description, 50)}</p>
+                            <p class="card-date small"><span>${article.publishedAt ? moment(article.publishedAt).fromNow() : ' '}</span></p>
+                        </div>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+};
+
 // 뉴스컨텐츠
 const displayNews = (newsArticles) => {
     const newsContainer = document.getElementById('news-container');
-    newsContainer.innerHTML = newsArticles.map((article, index) => {
-        if (index < 3) { // 1번째, 5번째, 9번째 등의 뉴스
-            return `
-                <div class="col-lg-12 mb-4">
-                    <div class="card">
-                        <div class="row no-gutters">
-                            <div class="col-md-4 card-img-row">
-                                <a href="${article.url}" target="_blank" class="title_link">
-                                    <img src="${article.urlToImage || 'img/Noimage.jpg'}" class="card-img" alt="${article.title}" onerror="this.onerror=null; this.src='img/Noimage.jpg';">
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-bodyaa">
-                                    <h3 class="card-title"><a href="${article.url}" target="_blank" class="title_link">${article.title}</a></h3>
-                                    <p class="card-text">${truncateText(article.description, 200) || 'No description available'}</p>
-                                    <p class="card-date"><span>${article.category || ''}</span>  <span>${article.publishedAt ? moment(article.publishedAt).fromNow() : ' '}</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        } else { // 다른 뉴스들
-            return `
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-img-container">
+    let newsHTML = '';
+
+    // 처음 3개의 기사를 전체 너비로 표시
+    newsArticles.slice(0, 3).forEach((article, index) => {
+        const highlightedTitle = highlightSearchKeyword(article.title, currentKeyword);
+        const highlightedDescription = highlightSearchKeyword(truncateText(article.description, 200), currentKeyword);
+
+        newsHTML += `
+            <div class="col-lg-12 mb-4">
+                <div class="card">
+                    <div class="row no-gutters">
+                        <div class="col-md-4 card-img-row">
                             <a href="${article.url}" target="_blank" class="title_link">
-                                <img src="${article.urlToImage || 'img/Noimage.jpg'}" class="card-img-top" alt="${article.title}" onerror="this.onerror=null; this.src='img/Noimage.jpg';">
+                                <img src="${article.urlToImage || 'img/Noimage.jpg'}" class="card-img" alt="${article.title}" onerror="this.onerror=null; this.src='img/Noimage.jpg';">
                             </a>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="${article.url}" target="_blank" class="title_link">${article.title}</a></h5>
-                            <p class="card-text">${truncateText(article.description, 100) || 'No description available'}</p>
-                            <p class="card-date"><span>${article.category || ''}</span>  <span>${article.publishedAt ? moment(article.publishedAt).fromNow() : ' '}</span></p>
-                            <p class="card-category">Category: ${article.category || ' '}</p>
+                        <div class="col-md-8">
+                            <div class="card-bodyaa">
+                                <h3 class="card-title"><a href="${article.url}" target="_blank" class="title_link">${highlightedTitle}</a></h3>
+                                <p class="card-text">${highlightedDescription}</p>
+                                <p class="card-date"><span>${article.category || ''}</span>  <span>${article.publishedAt ? moment(article.publishedAt).fromNow() : ' '}</span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            `;
+            </div>
+        `;
+    });
+
+    // 나머지 기사들을 2열로 표시
+    newsHTML += '<div class="row">';
+    newsArticles.slice(3).forEach((article, index) => {
+        const highlightedTitle = highlightSearchKeyword(article.title, currentKeyword);
+        const highlightedDescription = highlightSearchKeyword(truncateText(article.description, 100), currentKeyword);
+
+        newsHTML += `
+            <div class="col-lg-6 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-img-container">
+                        <a href="${article.url}" target="_blank" class="title_link">
+                            <img src="${article.urlToImage || 'img/Noimage.jpg'}" class="card-img-top" alt="${article.title}" onerror="this.onerror=null; this.src='img/Noimage.jpg';">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="${article.url}" target="_blank" class="title_link">${highlightedTitle}</a></h5>
+                        <p class="card-text">${highlightedDescription}</p>
+                        <p class="card-date"><span>${article.category || ''}</span>  <span>${article.publishedAt ? moment(article.publishedAt).fromNow() : ' '}</span></p>
+                        <p class="card-category">Category: ${article.category || ' '}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // 매 2개의 기사마다 새로운 row 시작
+        if ((index + 1) % 2 === 0 && index !== newsArticles.length - 4) {
+            newsHTML += '</div><div class="row">';
         }
-    }).join('');
+    });
+    newsHTML += '</div>'; // 마지막 row 닫기
+
+    newsContainer.innerHTML = newsHTML;
 };
 
 // 페이지네이션
@@ -214,6 +293,11 @@ const initializeEventListeners = () => {
         }
     };
 
+    const sportsMenuItem = document.querySelector('.nav-link[href="#"][role="button"][aria-expanded="false"]:nth-child(2)');
+    if (sportsMenuItem) {
+        sportsMenuItem.addEventListener('click', getSportsNews);
+    }
+
     searchButton.addEventListener('click', performSearch);
     searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
@@ -224,8 +308,31 @@ const initializeEventListeners = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Swiper
+    var swiper = new Swiper('.rightSide .swiper-container', {
+        slidesPerView: 1.2,
+        spaceBetween: 30,
+        centeredSlides: false,
+        loop: true,
+        loopAdditionalSlides: 1,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    // 인기 검색어 클릭
+    const searchValues = document.querySelectorAll('.search-value');
+    searchValues.forEach(value => {
+        value.addEventListener('click', (event) => {
+            const keyword = event.target.textContent;
+            document.getElementById('search-input').value = keyword;
+            getNewsByKeyword();
+        });
+    });
     initializeEventListeners();
     getLatestNews();
+    getSportsNews();
 });
 
 

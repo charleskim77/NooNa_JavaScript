@@ -8,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -30,19 +30,43 @@
                         </div>
                     </div>
                     <div class="rightSide col-10">
-                        <div class="rightSide-img"><a href="#"><img src="https://img.seoul.co.kr/img/n24/seoulHistory/seoulHistory3_620_20240116500082_n.png" alt="구국운동의 횃불 '대한매일신보'…국채보상운동을 이끌다 [서울신문 역사관]"></a></div>
-                        <div class="rightSide-img"><a href="#"><img src="https://img.seoul.co.kr/img/n24/seoulHistory/seoulHistory3_620_20240117500105_n.png" alt="광화문에 우뚝 선 이순신 장군…서울신문의 역사가 되다 [서울신문 역사관]"></a></div>
-                        <div class="rightSide-img"><a href="#"><img src="https://img.seoul.co.kr/img/n24/seoulHistory/seoulHistory3_620_20240116500130_n.png" alt="북한군 밀려와도 끝까지 찍은 '호외'…" 우리는 돌아왔다" [서울신문 역사관]"></a></div>
-                        <div class="rightSide-img"><a href="#"><img src="https://img.seoul.co.kr/img/n24/seoulHistory/seoulHistory3_620_20240116500096_n.png" alt="소설가 '한강'의 등용문…'신춘문예' 100년의 역사를 만들다 [서울신문 역사관]"></a></div>
+                        <div class="swiper-container rightSide-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="rightSide-img"><a href="#"><img src="https://img.seoul.co.kr/img/n24/seoulHistory/seoulHistory3_620_20240116500082_n.png" alt="구국운동의 횃불 '대한매일신보'…국채보상운동을 이끌다 [서울신문 역사관]"></a></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="rightSide-img"><a href="#"><img src="https://img.seoul.co.kr/img/n24/seoulHistory/seoulHistory3_620_20240117500105_n.png" alt="광화문에 우뚝 선 이순신 장군…서울신문의 역사가 되다 [서울신문 역사관]"></a></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="rightSide-img"><a href="#"><img src="https://img.seoul.co.kr/img/n24/seoulHistory/seoulHistory3_620_20240116500130_n.png" alt="북한군 밀려와도 끝까지 찍은 '호외'…" 우리는 돌아왔다" [서울신문 역사관]"></a></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="rightSide-img"><a href="#"><img src="https://img.seoul.co.kr/img/n24/seoulHistory/seoulHistory3_620_20240116500096_n.png" alt="소설가 '한강'의 등용문…'신춘문예' 100년의 역사를 만들다 [서울신문 역사관]"></a></div>
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                            <!-- Add Navigation -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="showMoreBtn open"><i class="fas fa-angle-down"></i></div>
         </div>
     </div>
+
     <!-- 검색-->
     <div class="search-container">
         <div class="container">
+            <div class="top-search">
+                <div class="search-value-list">1.<span class="search-value">손흥민</span></div>
+                <div class="search-value-list">2.<span class="search-value">비트코인</span></div>
+                <div class="search-value-list">3.<span class="search-value">운동</span></div>
+                <div class="search-value-list">4.<span class="search-value">유재석</span></div>
+            </div>
             <div class="search-wrapper">
                 <button id="search-icon" class="search-icon">
                     <i class="fas fa-search"></i>
@@ -218,17 +242,14 @@
 
     <main class="container mt-4">
         <div class="row">
-            <div class="General col-12"></div>
-        </div>
-        <div class="row">
-            <div class="General col-8"></div>
-            <div class="Sports col-4"></div>
-        </div>
-        <div class="row">
-            <div class="General col-12"></div>
-        </div>
-        <div id="news-container" class="row">
-            <!-- 뉴스 기사 출력 -->
+            <div id="news-container" class="col-lg-9 col-md-12 news-container-L">
+                <div class="row">
+                    <!-- 뉴스 기사 출력 -->
+                </div>
+            </div>
+            <div id="news-container-sports" class="col-lg-3 col-md-12 news-container-R">
+                    <!-- sports 기사 출력 -->
+            </div>
         </div>
 
         <nav aria-label="Page navigation">
@@ -242,12 +263,12 @@
     <footer class="bg-dark text-light py-5">
         <div class="container footer-top">
             <div class="row">
-                <ul class="col-md-6 footer-li-l">
+                <ul class="col-6 footer-li-l">
                     <li><a href="#">행사안내</a></li>
                     <li><a href="#">제휴 및 문의</a></li>
                     <li><a href="#">채용안내</a></li>
                 </ul>
-                <ul class="col-md-6 footer-li-r">
+                <ul class="col-6 footer-li-r">
                     <li><a href="#">서비스 문의</a></li>
                     <li><a href="#">누나뉴스브랜드</a></li>
                     <li><a href="#">공익/문화/사업</a></li>
