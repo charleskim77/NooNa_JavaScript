@@ -123,10 +123,33 @@ footer {
 
 
 /*메뉴*/
+.navbar-fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar-scrolled {
+    background-color: rgba(0, 0, 0, 0.8); 
+    transition: background-color 200ms linear;
+    color: #fff;
+}
+
+.navbar-scrolled .nav-item .nav-link {
+    color: white !important;
+    transition: color 200ms linear;
+}
+
+/* 호버 효과도 추가하고 싶다면 */
+.navbar-scrolled .nav-item .nav-link:hover {
+    color: #f26930 !important;
+}
+
 .navbar .container {
     position: relative;
     padding-bottom: 4px;
-    /* 컨테이너 내부 하단에 4px 공간 확보 */
     align-items: flex-end;
 }
 
@@ -136,14 +159,10 @@ footer {
     position: absolute;
     bottom: 0;
     left: 12px;
-    /* 왼쪽에 12px 패딩 적용 */
     right: 12px;
-    /* 오른쪽에 12px 패딩 적용 */
-    height: 4px;
+    height: 2px;
     background: #f26930;
-    /* 원하는 색상으로 변경 가능 */
     border-radius: 10px 10px 0 0;
-    /* 상단 모서리만 둥글게 처리 */
 }
 
 
@@ -282,7 +301,6 @@ footer {
 
     body {
         padding-top: 0;
-        /* 큰 화면에서는 패딩 제거 */
     }
 }
 

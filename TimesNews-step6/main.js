@@ -356,3 +356,23 @@ $(document).ready(function () {
         }]
     });
 });
+
+let lastScrollTop = 0;
+const navbar = document.getElementById('main-nav');
+const navbarHeight = navbar.offsetHeight;
+
+window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop && scrollTop > navbarHeight) {
+        // 아래로 스크롤
+        navbar.classList.add('navbar-fixed-top', 'navbar-scrolled');
+        document.body.style.paddingTop = navbarHeight + 'px';
+    } else if (scrollTop <= navbarHeight) {
+        // 페이지 최상단
+        navbar.classList.remove('navbar-fixed-top', 'navbar-scrolled');
+        document.body.style.paddingTop = '0';
+    }
+    
+    lastScrollTop = scrollTop;
+});
