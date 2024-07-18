@@ -14,6 +14,9 @@
     <!-- 커스텀 CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-main.css">
+    <!-- jQuery 라이브러리 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 </head>
 
 <body>
@@ -275,33 +278,20 @@
 
                 <div class="row">
                     <div class="col-lg-9 col-md-12 mb-5">
-                        <div id="tasks" class="list-group mb-3 row-box-style2">
-                            <!-- 아이템 출력 -->
-                        </div>
-                        <div class="pagination-container">
-                            <ul id="pagination" class="pagination justify-content-center">
-                                <!-- 페이지네이션 -->
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- 팝업 모달 -->
-                    <div id="articleModal" class="modal">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <span class="close">&times;</span>
-                            </div>
-                            <div id="modalBody" class="modal-body">
-                                <!-- 모달 내용 -->
-                            </div>
-                            <div class="modal-footer">
-                                <button id="closeModalBtn" class="btn btn-secondary">닫기</button>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div id="tourismContainer" class="row g-4">
+                                        <!-- Tourism content will be dynamically inserted here -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-12 mb-5">
-                        <div class="d-flex align-items-center justify-content-center row-box-style2">
-                            <h1>라이트 배너</h1>
+                    <div class="col-lg-3 col-md-12 mb-5  index-banner-box-none">
+                        <div class="d-flex index-banner-box row-box-style2">
+                            <img src="img/banner.jpg" width="100%">
                         </div>
                     </div>
                 </div>
@@ -309,36 +299,19 @@
             </div>
         </div>
     </section>
-
 
     <section>
-        <div class="container mb-5">
-            <div id="tasks" class="list-group mb-3 row-box-style2">
-                <h2> 디자인 작업</h2>
-
-
-                <div class="list-item-box mb-3 p-3">
-                    <div class="card-img-container">
-                        <a href="${task.wr_link1}" target="_blank" class="title_link">
-                            <img src="${task.wr_link1 || 'img/Noimage.jpg'}" class="card-img-top" alt="${task.wr_subject}" onerror="this.onerror=null; this.src='img/Noimage.jpg';">
-                        </a>
-                        <div class="overlay">
-                            <button class="btn detail-btn">상세보기</button>
-                        </div>
-                    </div>
-                    <div class="list-item-box-info">
-                        <h6 class="mbs-1">${highlightedSubject}</h6>
-                        <p class="mb-1 mt-2">${highlightedContent}</p>
-                        <small class="text-muted list-item-box-t2"><i class="fas fa-stream"></i>카테고리: ${task.wr_1} ${task.wr_2 ? '> ' + task.wr_2 : ''}</small>
-                        <small class="list-item-box-t2">평점 <span class="card-list-item-star">${getStarRating(parseFloat(article.eb_10) || 0)}</span></small>
-                        <small class="text-muted list-item-box-t2">${task.wr_datetime}</small>
+        <div class="container py-5">
+            <h1 class="text-center mb-5">관광 정보</h1>
+            <div class="row">
+                <div class="col-12">
+                    <div id="tourismContainerB" class="row g-4">
+                        <!-- Tourism content will be dynamically inserted here -->
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
 
 
 
@@ -413,6 +386,7 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- 커스텀 JS -->
     <script src="script.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

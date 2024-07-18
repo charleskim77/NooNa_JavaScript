@@ -144,6 +144,7 @@ mark {
         margin-top: 20px;
     }
 }
+
 .offcanvas {
     background-color: #00000060;
 }
@@ -647,9 +648,11 @@ footer ul li a {
     display: flex;
     flex-wrap: wrap;
 }
+
 .list-item-box-ico small {
     margin-right: 10px;
 }
+
 .list-item-box-t2 {
     display: inline-block;
     border-radius: 20px;
@@ -792,6 +795,7 @@ footer ul li a {
     display: flex;
     justify-content: flex-end;
 }
+
 .modal-list-subject {
     text-align: center;
     background-color: #000;
@@ -806,6 +810,7 @@ footer ul li a {
     margin: 30px 0;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
+
 .close {
     color: #aaa;
     font-size: 28px;
@@ -832,11 +837,13 @@ footer ul li a {
 .btn-secondary {
     width: 100%;
 }
+
 .btn:hover {
     color: #fff;
     background-color: #ff5b00;
     border-color: #f6fbff;
 }
+
 /**구글맵**/
 .card-gmap_view_canvas {
     height: 600px !important;
@@ -851,4 +858,186 @@ footer ul li a {
     width: 100%;
     border-radius: 10px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+
+.tourism-title {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* 표시할 줄 수 */
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    line-height: 1.2em;
+    height: 1.2em;
+    /* line-height와 같은 값으로 설정 */
+}
+
+
+.tourism-first-img,
+.tourism-img {
+    border-radius: 10px;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.tourism-first-img:hover,
+.tourism-img:hover {
+    transform: scale(1.05);
+}
+
+.tourism-arrow-left,
+.tourism-arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.tourism-arrow-left:hover,
+.tourism-arrow-right:hover {
+    color: #0056b3;
+}
+
+.tourism-arrow-left {
+    left: 15px;
+}
+
+.tourism-arrow-right {
+    right: 15px;
+}
+
+.tourism-image-touch {
+    cursor: pointer;
+}
+
+#tourismPopup,
+#tourismMobilePopup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+#tourismPopup .content,
+#tourismMobilePopup .content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+    color: #333;
+}
+
+#tourismPopup.hide,
+#tourismMobilePopup.hide {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .view-pc {
+        display: none;
+    }
+
+    .view-mobile {
+        display: block;
+    }
+
+    .tourism-mobile-arrow-left,
+    .tourism-mobile-arrow-right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 50%;
+    }
+
+    .tourism-mobile-arrow-left {
+        left: 10px;
+    }
+
+    .tourism-mobile-arrow-right {
+        right: 10px;
+    }
+}
+
+.mobile-slide-image {
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+.carousel-caption .tourism-title {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgb(2, 189, 189);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: auto;
+    padding: 0 15px;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    background-color: rgba(199, 0, 0, 0.7);
+}
+
+.text-center {
+ background-color: #000;
+ color: #fff;
+ padding: 6px 0;
+}
+
+.index-banner-box {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+@media (max-width: 991px) {
+    .index-banner-box-none {
+        display: none;
+    }
 }
