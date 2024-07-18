@@ -877,7 +877,9 @@ footer ul li a {
     height: 1.2em;
     /* line-height와 같은 값으로 설정 */
 }
-
+.tourism-title a {
+    color: #000;
+}
 
 .tourism-first-img,
 .tourism-img {
