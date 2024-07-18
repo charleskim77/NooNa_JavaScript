@@ -436,10 +436,14 @@ footer ul li a {
     color: #979fa7 !important;
 }
 
+
+
+
 .social-icons {
     display: flex;
     justify-content: space-around;
 }
+
 
 .social-icons .social-icon {
     display: inline-flex;
@@ -464,6 +468,7 @@ footer ul li a {
 .social-icons .social-icon:hover {
     transform: scale(1.2);
 }
+
 
 .list-inline {
     display: flex;

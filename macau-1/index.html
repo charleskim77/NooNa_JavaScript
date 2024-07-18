@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마카오 구석구석</title>
+    <!-- 부트스트랩 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- 커스텀 CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-main.css">
+</head>
+
+<body>
+
+    <!-- 상단 검색 및 연락처 -->
+    <section class="section d-flex">
+        <div class="container d-flex justify-content-md-between align-items-center">
+            <div class="top-search d-none d-md-flex popular-item-search">
+                <div class="search-value-list">
+                    <a href="#" onclick="searchKeyword('카지노')">1.[카지노]</a>
+                </div>
+                <div class="search-value-list">
+                    <a href="#" onclick="searchKeyword('베네치안')">2.[베네치안]</a>
+                </div>
+                <div class="search-value-list">
+                    <a href="#" onclick="searchKeyword('호텔')">3.[호텔]</a>
+                </div>
+                <div class="search-value-list">
+                    <a href="#" onclick="searchKeyword('갤럭시')">4.[갤럭시]</a>
+                </div>
+            </div>
+            <div class="index-top-bar d-md-flex">
+                <a href="mailto:help@navbar-expand.com" onclick="openEmailPopup(event)">
+                    <i class="fas fa-envelope"></i> help@navbar-expand.com
+                </a>
+                <a href="tel:02-1234-5678" onclick="handlePhoneClick(event)">
+                    <i class="fas fa-phone-alt phone-icon"></i> 02-1234-5678
+                </a>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logoA1.png" alt="마카오 구석구석" class="index-logo">
+            </a>
+            <div class="google-map-button d-lg-none ms-auto me-2">
+                <a href="#about" class="scrollto">Google Map Search</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="navbarOffcanvasLabel">메뉴</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#" onclick="loadCategory('호텔')">호텔</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" onclick="loadCategory('관광')">관광</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" onclick="loadCategory('식당')">레스토랑</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" onclick="loadCategory('쇼핑')">쇼핑</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" onclick="loadCategory('공연')">공연</a></li>
+                    </ul>
+                    <div class="google-map-button d-lg-none mt-3">
+                        <a href="#about" class="scrollto">Google Map Search</a>
+                    </div>
+                </div>
+            </div>
+            <div class="google-map-button d-none d-lg-block ms-3">
+                <a href="#about" class="scrollto">Google Map Search</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="mainVisualImage">
+        <div class="swiper mvSlider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide txtRight" style="background-image:url('img/main-slide-01.jpg')">
+                    <div class="WCMSScontS">
+                        <dl>
+                            <dt class="animate__animated" data-animation="animate__fadeInRight"><i class="fa fa-youtube-square"></i>MACAU RESTAURANT</dt>
+                            <dd class="animate__animated" data-animation="animate__fadeInUp">
+                                마카오 레스토랑
+                                <br>
+                                <a href="#" class="themeBgColor">view more +</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="swiper-slide txtRight" style="background-image:url('img/main-slide-02.jpg')">
+                    <div class="WCMSScontS">
+                        <dl>
+                            <dt class="animate__animated" data-animation="animate__fadeInRight">MACAU HOTELS</dt>
+                            <dd class="animate__animated" data-animation="animate__fadeInUp">
+                                마카오 호텔
+                                <br>
+                                <a href="#" class="themeBgColor">view more +</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="swiper-slide txtLeft" style="background-image:url('img/main-slide-03.jpg')">
+                    <div class="WCMSScontS">
+                        <dl>
+                            <dt class="animate__animated" data-animation="animate__fadeInLeft">MACAU TOURIST ATTRACTIONS</dt>
+                            <dd class="animate__animated" data-animation="animate__fadeInUp">
+                                마카오 관광지
+                                <br>
+                                <a href="#" class="themeBgColor">view more +</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="swiper-slide txtRight" style="background-image:url('img/main-slide-04.jpg')">
+                    <div class="WCMSScontS">
+                        <dl>
+                            <dt class="animate__animated" data-animation="animate__fadeInRight">MACAU PERFORMANCE</dt>
+                            <dd class="animate__animated" data-animation="animate__fadeInUp">
+                                마카오 공연
+                                <br>
+                                <a href="#" class="themeBgColor">view more +</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="swiper-slide txtRight" style="background-image:url('img/main-slide-05.jpg')">
+                    <div class="WCMSScontS">
+                        <dl>
+                            <dt class="animate__animated" data-animation="animate__fadeInRight">MACAU SHOPPING</dt>
+                            <dd class="animate__animated" data-animation="animate__fadeInUp">
+                                마카오 쇼핑
+                                <br>
+                                <a href="#" class="themeBgColor">view more +</a>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- 검색 창 -->
+            <div class="search-wrapper">
+                <div id="search-bar" class="search-bar">
+                    <form id="search-form" class="search-bar" onsubmit="return searchFromBar(event)">
+                        <input type="text" id="search-input" placeholder="검색어를 입력하세요">
+                        <button type="submit">GO</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 아이콘 박스 섹션 -->
+    <section id="icon-boxes" class="icon-boxes">
+        <div class="container mb-5">
+            <div class="row p-3">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+                    <div class="icon-box">
+                        <div class="icon"><i class="fas fa-heart"></i></div>
+                        <h2 class="title2"><a href="">행운의 용 쇼</a></h2>
+                        <h4 class="title"><a href="">Dragon of Fortune</a></h4>
+                        <p class="description">윈 마카오의 로툰다 아트리움에서 활력과 행운, 건강을 상징하는 ‘행운의 용’을 만날 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><i class="fas fa-star"></i></div>
+                        <h2 class="title2"><a href="">성 바울 성당</a></h2>
+                        <h4 class="title"><a href="">Ruins of St. Paul's</a></h4>
+                        <p class="description">성 바울 성당 유적은 예수의 사도인 성 바울에게 바쳐진, 마카오에 위치한 포르투갈의 17세기 성당의 유적지</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><i class="fas fa-trophy"></i></div>
+                        <h2 class="title2"><a href="">에펠 타워&라이트 쇼</a></h2>
+                        <h4 class="title"><a href="">Eiffel Tower Light Show</a></h4>
+                        <p class="description">파리지앵 마카오의 시그너처인 에펠탑 형형색색 불을 밝히는 환상적인 라이트 쇼가 펼쳐집니다.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box">
+                        <div class="icon"><i class="fas fa-gem"></i></div>
+                        <h2 class="title2"><a href="">베네치안 마카오</a></h2>
+                        <h4 class="title"><a href="">THE VENETIAN MACAO</a></h4>
+                        <p class="description">마카오의 럭셔리한 5성급 호텔로서, 고객이 편히 쉬면서 마카오를 둘러볼 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 이벤트 배너 섹션 -->
+    <section id="e-banner-boxes" class="banner-boxes mb-5">
+        <div class="container">
+            <div class="swiper e-banner-swiper">
+                <div class="swiper-wrapper e-banner-list">
+                    <div class="swiper-slide e-banner"><img src="img/main-event-banner01.webp" alt="Event Banner 1"></div>
+                    <div class="swiper-slide e-banner"><img src="img/main-event-banner02.webp" alt="Event Banner 2"></div>
+                    <div class="swiper-slide e-banner"><img src="img/main-event-banner03.webp" alt="Event Banner 3"></div>
+                    <div class="swiper-slide e-banner"><img src="img/main-event-banner04.webp" alt="Event Banner 4"></div>
+                    <div class="swiper-slide e-banner"><img src="img/main-event-banner05.webp" alt="Event Banner 5"></div>
+                    <div class="swiper-slide e-banner"><img src="img/main-event-banner06.webp" alt="Event Banner 6"></div>
+                    <div class="swiper-slide e-banner"><img src="img/main-event-banner07.webp" alt="Event Banner 7"></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5성급 디럭스 호텔 섹션 -->
+    <section id="tasks-list" class="section">
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-12">
+                    <div class="guidebox">
+                        <div id="totalResults"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-5">
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <select id="category" class="form-select" onchange="handleCategoryChange()">
+                            <option value="">카테고리 선택</option>
+                            <option value="호텔">호텔</option>
+                            <option value="관광">관광</option>
+                            <option value="식당">레스토랑</option>
+                            <option value="쇼핑">쇼핑</option>
+                            <option value="공연">공연</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="sub_category" class="form-select">
+                            <option value="">호텔 등급 선택</option>
+                            <option value="5성 디럭스 호텔">5성급 디럭스 호텔</option>
+                            <option value="5성급 호텔">5성급 호텔</option>
+                            <option value="4성급 호텔">4성급 호텔</option>
+                            <option value="3성급 호텔">3성급 호텔</option>
+                            <option value="2성급 호텔">2성급 호텔</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="limit" class="form-select">
+                            <option value="5">5개씩 보기</option>
+                            <option value="10">10개씩 보기</option>
+                            <option value="20">20개씩 보기</option>
+                            <option value="50">50개씩 보기</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <input type="text" id="search" class="form-control" placeholder="검색">
+                            <button class="btn btn-outline-secondary" type="button" id="searchButton">검색</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 mb-5">
+                        <div id="tasks" class="list-group mb-3 row-box-style2">
+                            <!-- 아이템 출력 -->
+                        </div>
+                        <div class="pagination-container">
+                            <ul id="pagination" class="pagination justify-content-center">
+                                <!-- 페이지네이션 -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 팝업 모달 -->
+                    <div id="articleModal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                            </div>
+                            <div id="modalBody" class="modal-body">
+                                <!-- 모달 내용 -->
+                            </div>
+                            <div class="modal-footer">
+                                <button id="closeModalBtn" class="btn btn-secondary">닫기</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-12 mb-5">
+                        <div class="d-flex align-items-center justify-content-center row-box-style2">
+                            <h1>라이트 배너</h1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container mb-5">
+            <div id="tasks" class="list-group mb-3 row-box-style2">
+                <h2> 디자인 작업</h2>
+
+
+                <div class="list-item-box mb-3 p-3">
+                    <div class="card-img-container">
+                        <a href="${task.wr_link1}" target="_blank" class="title_link">
+                            <img src="${task.wr_link1 || 'img/Noimage.jpg'}" class="card-img-top" alt="${task.wr_subject}" onerror="this.onerror=null; this.src='img/Noimage.jpg';">
+                        </a>
+                        <div class="overlay">
+                            <button class="btn detail-btn">상세보기</button>
+                        </div>
+                    </div>
+                    <div class="list-item-box-info">
+                        <h6 class="mbs-1">${highlightedSubject}</h6>
+                        <p class="mb-1 mt-2">${highlightedContent}</p>
+                        <small class="text-muted list-item-box-t2"><i class="fas fa-stream"></i>카테고리: ${task.wr_1} ${task.wr_2 ? '> ' + task.wr_2 : ''}</small>
+                        <small class="list-item-box-t2">평점 <span class="card-list-item-star">${getStarRating(parseFloat(article.eb_10) || 0)}</span></small>
+                        <small class="text-muted list-item-box-t2">${task.wr_datetime}</small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section>
+        <div class="container mb-5">
+            <div class="row">
+
+                <div class="col-lg-9 col-md-12 mb-5">
+                    <div class="d-flex align-items-center justify-content-center row-box-style">
+                        <h1>5성급 디럭스 호텔</h1>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-12 mb-5">
+                    <div class="d-flex align-items-center justify-content-center row-box-style">
+                        <h1>라이트 배너</h1>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+
+
+    <!-- 푸터 -->
+    <footer class="footer-bg py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 mb-4">
+                    <h5 class="text-uppercase">About Us</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!">Our Story</a></li>
+                        <li><a href="#!">Team</a></li>
+                        <li><a href="#!">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4">
+                    <h5 class="text-uppercase">Services</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!">Hotel Booking</a></li>
+                        <li><a href="#!">Tour Packages</a></li>
+                        <li><a href="#!">Travel Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Support</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!">FAQ</a></li>
+                        <li><a href="#!">Contact Us</a></li>
+                        <li><a href="#!">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Follow Us</h5>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3 mt-4">
+            <p class="Copyright">&copy; 2023 마카오 구석구석. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 부트스트랩 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- 커스텀 JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
